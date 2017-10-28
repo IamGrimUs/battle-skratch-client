@@ -1,0 +1,41 @@
+.login-form-container {
+  width: 90%;
+  margin: 2em auto;
+  margin-top: 4em;
+}
+@media screen and (min-width: 500px) {
+  .login-form-container {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .login-form-container {
+    width: 50%;
+  }
+}
+.login-form-container h2 {
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .login-form-container h2 {
+    padding: 0 0.5em;
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
+}
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  border: 0;
+  font-size: 1.15rem;
+  background-color: #fafafa;
+  padding: 1em 0em;
+  border-bottom: 1px solid rgba(85, 85, 92, 0.4);
+  outline: none;
+  resize: vertical;
+}
+.comment-form {
+  margin-top: 2em;
+}
