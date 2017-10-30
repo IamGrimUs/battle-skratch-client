@@ -7,8 +7,8 @@ export default class Login extends React.Component {
   render() {
     return (
       <section>
-        <h1 class="page-title">battle submission</h1>
-        <div class="content-frame">
+        <h1 className="page-title">battle submission</h1>
+        <div className="content-frame">
           <BattleSubmissionCard />
           <CommentSection />
         </div>

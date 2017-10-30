@@ -5,11 +5,11 @@ import './battleCreation.css';
 export default class Login extends React.Component {
   render() {
     return (
-      <section class="main-content">
-        <h1 class="page-title">battle setup</h1>
-        <section class="battle-form-container">
+      <section className="main-content">
+        <h1 className="page-title">battle setup</h1>
+        <section className="battle-form-container">
           <form ref="adminForm" class="admin-form" onSubmit={this.handleSubmit}>
-            <div class="battle-info">
+            <div className="battle-info">
               <h2>battle info</h2>
               <Input type="text" ref="battleName" placeholder="name" />
               <Input
@@ -20,7 +20,7 @@ export default class Login extends React.Component {
               <Input type="text" ref="battleDuration" placeholder="duration " />
               <input type="submit" hidden />
             </div>
-            <div class="beat-info">
+            <div className="beat-info">
               <h2>beat info</h2>
               <Input type="text" ref="beatTitle" placeholder="title" />
               <Input type="text" ref="producer" placeholder="producer" />

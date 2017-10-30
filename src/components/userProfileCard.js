@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 export function UserProfileCard(props) {
   console.log('hello world');
@@ -19,40 +17,27 @@ export function UserProfileCard(props) {
         </div>
         <div className="user-profile-social-container">
           <figure>
-            <Link to="{props.social_fb}">
+            <a href={props.social_fb} target="_blank">
               <img src="../img/facebook.jpg" alt="social icon" />
-            </Link>
+            </a>
           </figure>
           <figure>
-            <Link to="{props.social_tw}">
+            <a href={props.social_tw} target="_blank">
               <img src="../img/twitter.jpg" alt="social icon" />
-            </Link>
+            </a>
           </figure>
           <figure>
-            <Link to="{props.social_yt}">
+            <a href={props.social_yt} target="_blank">
               <img src="../img/facebook.jpg" alt="social icon" />
-            </Link>
+            </a>
           </figure>
           <figure>
-            <Link to="{props.social_ig}">
+            <a href={props.social_ig} target="_blank">
               <img src="../img/twitter.jpg" alt="social icon" />
-            </Link>
+            </a>
           </figure>
         </div>
       </div>
     </div>
   );
 }
-
-const mapStateToProps = state => ({
-  djname: state.djName,
-  social_fb: state.social_fb,
-  social_tw: state.social_tw,
-  social_yt: state.social_yt,
-  social_ig: state.social_ig,
-  battlesEntered: state.battlesEntered,
-  battlesWon: state.battlesWon,
-  totalPoints: state.totalPoints
-});
-
-export default connect(mapStateToProps(UserProfileCard));

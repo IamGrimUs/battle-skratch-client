@@ -4,7 +4,7 @@ import BattleSubmissionPreview from './battleSubmissionPreview';
 
 export default function BattleCurrent() {
   return (
-    <section class="content-block">
+    <section className="content-block">
       <BattleHeadline />
       <BattleSubmissionPreview />
     </section>

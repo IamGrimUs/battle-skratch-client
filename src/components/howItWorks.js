@@ -7,8 +7,8 @@ export default class HowItWorks extends React.Component {
     return (
       <section>
         <SiteNav />
-        <h1 class="page-title">How it works</h1>
-        <section class="instruction-container">
+        <h1 className="page-title">How it works</h1>
+        <section className="instruction-container">
           <p>
             Battle Skratch is an app for turntablists of all skill levels. The
             aim is to promote the art of turntablism and the community of djs
@@ -19,9 +19,9 @@ export default class HowItWorks extends React.Component {
           </p>
           <p>when your ready put on your big boy pants and enter the arena.</p>
         </section>
-        <section class="content-block--100">
-          <section class="instruction-container">
-            <h2 class="battle-orders-title">rules of engagment</h2>
+        <section className="content-block--100">
+          <section className="instruction-container">
+            <h2 className="battle-orders-title">rules of engagment</h2>
             <ul>
               <li>
                 <span>step zero:</span> don't be a dick

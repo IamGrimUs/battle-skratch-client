@@ -4,10 +4,10 @@ import BattleSubmissionImgLink from './battleSubmissionImgLink';
 
 export default function BattleSubmissionPreview() {
   return (
-    <section class="contest-entry-block">
-      <section class="contest-entry">
+    <section className="contest-entry-block">
+      <section className="contest-entry">
         <BattleSubmissionImgLink />
-        <div class="contest-entry-description-block">
+        <div className="contest-entry-description-block">
           <p>iam grimus</p>
         </div>
         <BattleSubmissionLink />

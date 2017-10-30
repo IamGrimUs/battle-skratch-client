@@ -17,6 +17,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.14"
+    "react-scripts": "^1.0.14",
+    "redux-immutable-state-invariant": "^2.1.0"
   }
 }

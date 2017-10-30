@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function BattleSubmissionLink() {
   return (
-    <div class="contest-entry-button-block">
+    <div className="contest-entry-button-block">
       <button>
         <Link to="/battleSubmission">watch the video</Link>
       </button>

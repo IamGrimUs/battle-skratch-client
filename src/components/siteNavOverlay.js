@@ -31,7 +31,7 @@ export default function SiteNavOverlay() {
           </Link>
         </li>
       </ul>
-      <Link to="/" class="close-menu">
+      <Link to="/" className="close-menu">
         Close
         <span />
       </Link>

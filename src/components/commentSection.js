@@ -5,10 +5,10 @@ import './battleSubmission.css';
 
 export default function CommentSection() {
   return (
-    <section class="cframe-child-two">
+    <section className="cframe-child-two">
       <h2>Post a comment</h2>
       <Comment />
-      <form class="comment-form">
+      <form className="comment-form">
         <Input type="text" placeholder="say something..." />
         <input type="submit" hidden />
       </form>

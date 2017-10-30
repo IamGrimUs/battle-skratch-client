@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function BattleSubmissionVotes() {
   return (
-    <div class="contest-entry-button-block">
+    <div className="contest-entry-button-block">
       <button className="vote">
         <span role="img" aria-label="thumb up">
           &#128077;

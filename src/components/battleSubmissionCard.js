@@ -6,7 +6,7 @@ import VideoNavigation from './videoNavigation';
 
 export default function BattleSubmissionCard() {
   return (
-    <section class="cframe-child-one">
+    <section className="cframe-child-one">
       <Video />
       <VideoNavigation />
       <VideoDetails />

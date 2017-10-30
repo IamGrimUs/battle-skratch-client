@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function Comments(props) {
   return (
-    <div class="cframe-ctwo-comment-frame">
+    <div className="cframe-ctwo-comment-frame">
       <p>
-        <span class="cframe-ctwo-comframe-author">snuffleupagus:</span>
+        <span className="cframe-ctwo-comframe-author">snuffleupagus:</span>
         this and that and ahh.
-        <button class="cframe-ctwo-comframe-remove">x</button>
+        <button className="cframe-ctwo-comframe-remove">x</button>
       </p>
     </div>
   );

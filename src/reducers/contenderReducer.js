@@ -1,4 +1,4 @@
-import { ADD_CONTENDER } from '../actions/contender.action';
+import { ADD_CONTENDER } from '../actions/contenderAction';
 
 const initialState = {
   Contenders: [
