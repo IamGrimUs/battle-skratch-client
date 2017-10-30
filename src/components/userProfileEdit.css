@@ -1,0 +1,82 @@
+.background-color-container {
+  background-color: #3b393f;
+  border-bottom: 2px solid #e7d697;
+  border-top: 2px solid #e7d697;
+  margin: 2em auto;
+  margin-bottom: 10em;
+}
+.user-profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em auto;
+  margin-top: 4em;
+  width: 90%;
+}
+@media screen and (min-width: 500px) {
+  .user-profile-container {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .user-profile-container {
+    width: 60%;
+  }
+}
+.profile-form h2 {
+  color: #fafafa;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .profile-form h2 {
+    font-size: 40px;
+    font-size: 2.5rem;
+    padding: 0 0.5em;
+  }
+}
+.profile-form h2:nth-child(3) {
+  margin-top: 2em;
+}
+.profile-avatar-container figure {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+.profile-avatar-container figure img {
+  width: 100%;
+  height: auto;
+}
+.profile-avatar-container,
+.profile-info {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .profile-avatar-container {
+    width: 40%;
+  }
+  .profile-info {
+    width: 60%;
+  }
+  .profile-form {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+.profile-form input,
+.profile-form textarea {
+  background-color: #3b393f;
+  border: 0;
+  border-bottom: 1px solid #fafafa;
+  color: #fafafa;
+  font-size: 1.15rem;
+  outline: none;
+  padding: 1em 0em;
+  resize: vertical;
+  width: 100%;
+}
+.profile-form {
+  margin-bottom: 2em;
+}

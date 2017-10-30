@@ -1,0 +1,48 @@
+.battle-form-container {
+  width: 90%;
+  margin: 2em auto;
+  margin-top: 4em;
+}
+@media screen and (min-width: 500px) {
+  .battle-form-container {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .battle-form-container {
+    width: 50%;
+  }
+}
+.battle-info h2,
+.beat-info h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+.beat-info {
+  margin-top: 4em;
+}
+@media screen and (min-width: 768px) {
+  .battle-info h2,
+  .beat-info h2 {
+    padding: 0 0.5em;
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
+}
+.admin-form input,
+.admin-form textarea {
+  width: 100%;
+  border: 0;
+  font-size: 1.15rem;
+  background-color: #fafafa;
+  padding: 1em 0em;
+  border-bottom: 1px solid rgba(85, 85, 92, 0.4);
+  outline: none;
+  resize: vertical;
+}
+.admin-form {
+  margin-top: 2em;
+}

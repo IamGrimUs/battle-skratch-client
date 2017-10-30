@@ -2,12 +2,12 @@ jQuery(document).ready(function($) {
   //open menu
   $('.menu-trigger').on('click', function(event) {
     event.preventDefault();
-    console.log('hello');
     $('.main-content').addClass('move-out');
     $('#main-nav').addClass('is-visible');
     $('.shadow-layer').addClass('is-visible');
   });
-  //close menu
+
+  //close menu button
   $('.close-menu').on('click', function(event) {
     event.preventDefault();
     $('.main-content').removeClass('move-out');
