@@ -1,22 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { UserProfileCard } from './userProfileCard';
+
 import './contenders.css';
 
-export default function Contenders() {
-  return (
-    <section>
-      <h1 className="page-title">Contenders</h1>
-      <div className="background-color-container">
-        <section className="all-users-container">
-          <UserProfileCard
-            djName="russell"
-            battlesWon="1"
-            battlesEntered="1"
-            totalPoints="1"
-            social_tw="https://twitter.com/IamGrimus"
-          />
-        </section>
-      </div>
-    </section>
-  );
+export class Contenders extends React.Component {
+  userProfileCardSetup(contender, index) {
+    return <UserProfileCard key={index} index={index} {...contender} />;
+  }
+  render() {
+    const contenders = this.props.contender.map(this.userProfileCardSetup);
+    return (
+      <section>
+        <h1 className="page-title">Contenders</h1>
+        <div className="background-color-container">
+          <section className="all-users-container">{contenders}</section>
+        </div>
+      </section>
+    );
+  }
 }
+
+const mapStateToProps = state => ({
+  contender: state.contenderReducer.contenders
+});
+
+export default connect(mapStateToProps)(Contenders);

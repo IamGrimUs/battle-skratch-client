@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function UserProfileCard(props) {
-  console.log('hello world');
   return (
     <div className="user-profile">
       <figure className="user-profile-pic" />
@@ -17,22 +16,22 @@ export function UserProfileCard(props) {
         </div>
         <div className="user-profile-social-container">
           <figure>
-            <a href={props.social_fb} target="_blank">
+            <a href={props.socialIcons[0]['social_fb']} target="_blank">
               <img src="../img/facebook.jpg" alt="social icon" />
             </a>
           </figure>
           <figure>
-            <a href={props.social_tw} target="_blank">
+            <a href={props.socialIcons[1]['social_tw']} target="_blank">
               <img src="../img/twitter.jpg" alt="social icon" />
             </a>
           </figure>
           <figure>
-            <a href={props.social_yt} target="_blank">
+            <a href={props.socialIcons[2]['social_yt']} target="_blank">
               <img src="../img/facebook.jpg" alt="social icon" />
             </a>
           </figure>
           <figure>
-            <a href={props.social_ig} target="_blank">
+            <a href={props.socialIcons[3]['social_ig']} target="_blank">
               <img src="../img/twitter.jpg" alt="social icon" />
             </a>
           </figure>
