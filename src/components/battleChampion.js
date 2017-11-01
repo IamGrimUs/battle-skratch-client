@@ -20,7 +20,6 @@ export class BattleChampion extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const champions = this.props.champion.map(this.championCardSetup);
     return (
       <section>
@@ -32,8 +31,7 @@ export class BattleChampion extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('here is state', state);
-  return { champion: state.championReducer.champion || [] };
+  return { champion: state.championReducer.champion };
 };
 
 export default connect(mapStateToProps)(BattleChampion);
