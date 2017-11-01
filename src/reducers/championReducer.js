@@ -4,11 +4,15 @@ const initialState = {
   champion: [
     {
       djName: 'Oscar the Grouch',
+      grandChampion: 'grand champion',
+      currentChampion: false,
       battlesWon: '100',
       lastBattleWon: 'best :30s open skratch'
     },
     {
       djName: 'Snuffleupagus',
+      grandChampion: false,
+      currentChampion: 'current champion',
       battlesWon: 1,
       lastBattleWon: 'best :30s open skratch'
     }
