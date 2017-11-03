@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { contenderReducer } from './contenderReducer';
 import { championReducer } from './championReducer';
 import { beatReducer } from './beatReducer';
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
   championReducer,
   beatReducer,
   battleListingReducer,
-  battleSubmissionReducer
+  battleSubmissionReducer,
+  formReducer
 });
 
 export default rootReducer;

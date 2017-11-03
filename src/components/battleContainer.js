@@ -6,33 +6,29 @@ import BattleSubmissionPreview from './battleSubmissionPreview';
 export class BattleContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentBattlePosition: 0
-      // battleSubmission: { ...this.props.battleSubmission },
-      // battleListing: { ...this.props.battleListing }
-    };
+    // this.state = {
+    //   currentBattlePosition: 0
+    //   // battleSubmission: { ...this.props.battleSubmission },
+    //   // battleListing: { ...this.props.battleListing }
+    // };
   }
 
   render() {
-    console.log('this.props.battleListing', this.props.battleListing);
-    const battleListing = this.props.battleListing.map((listing, index) => {
-      return (
-        <BattleListingHeadline
-          key={index}
-          index={index}
-          battleNumber={listing.battleNumber}
-          startDate={listing.startDate}
-          endDate={listing.endDate}
-          currentBattle={listing.currentBattle}
-          duration={listing.duration}
-          title={listing.title}
-          discription={listing.discription}
-        />
-      );
-    });
-    console.log('this.props.battleSubmission', this.props.battleSubmission);
-    const battleSubmission = this.props.battleSubmission.map(
-      (submission, index) => {
+    const battle = this.props.battle;
+    const header = (
+      <BattleListingHeadline
+        battleNumber={battle.battleNumber}
+        startDate={battle.startDate}
+        endDate={battle.endDate}
+        currentBattle={battle.currentBattle}
+        duration={battle.duration}
+        title={battle.title}
+        discription={battle.discription}
+      />
+    );
+    const battleSubmissions = this.props.battleSubmission
+      .filter(vid => battle.videoIds.includes(vid.id))
+      .map((submission, index) => {
         return (
           <BattleSubmissionPreview
             key={index}
@@ -43,14 +39,11 @@ export class BattleContainer extends React.Component {
             videoLink={submission.videoLink}
           />
         );
-      }
-    );
-    // const currentBattleSubmission = this.props.battleSubmission;
-    console.log('this is battle submission', this.state.battleSubmission);
+      });
     return (
       <section className="content-block">
-        {battleListing}
-        <section className="contest-entry-block">{battleSubmission}</section>
+        {header}
+        <section className="contest-entry-block">{battleSubmissions}</section>
       </section>
     );
   }
@@ -58,7 +51,6 @@ export class BattleContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    battleListing: state.battleListingReducer.battles,
     battleSubmission: state.battleSubmissionReducer.battleSubmission
   };
 };

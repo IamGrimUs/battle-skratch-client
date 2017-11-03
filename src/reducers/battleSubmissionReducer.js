@@ -3,6 +3,7 @@ import { ADD_BATTLESUBMISSION } from '../actions/battleSubmissionAction';
 const initialState = {
   battleSubmission: [
     {
+      id: 1,
       videoLink:
         'https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0',
       videoImgLink: '../img/video-img.jpg',
@@ -13,6 +14,7 @@ const initialState = {
       comments: [{ author: 'ralph macheo', comment: 'this video is fire!' }]
     },
     {
+      id: 2,
       videoLink:
         'https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0',
       videoImgLink: '../img/video-img.jpg',

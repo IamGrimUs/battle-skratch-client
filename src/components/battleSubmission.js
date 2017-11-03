@@ -10,10 +10,14 @@ export class BattleSubmission extends React.Component {
     super(props);
     this.state = {
       currentVideoPosition: 0,
-      videoCount: 0
+      videoCount: 0,
+      voteUp: Number(this.props.battleSubmission.voteUp),
+      voteDown: Number(this.props.battleSubmission.voteDown)
     };
     this.loadNext = this.loadNext.bind(this);
     this.loadPrevious = this.loadPrevious.bind(this);
+    this.onVoteUp = this.onVoteUp.bind(this);
+    this.onVoteDown = this.onVoteDown.bind(this);
   }
 
   loadNext() {
@@ -47,16 +51,26 @@ export class BattleSubmission extends React.Component {
     });
   }
 
+  onVoteUp() {
+    this.setState({
+      ...this.state,
+      voteUp: ++this.props.battleSubmission[this.state.currentVideoPosition]
+        .voteUp
+    });
+  }
+
+  onVoteDown() {
+    this.setState({
+      ...this.state,
+      voteUp: ++this.props.battleSubmission[this.state.currentVideoPosition]
+        .voteDown
+    });
+  }
+
   render() {
-    // console.log('this.props.battleSubmission', this.props.battleSubmission);
     const currentVideo = this.props.battleSubmission[
       this.state.currentVideoPosition
     ];
-    // console.log(
-    //   this.state.currentVideoPosition,
-    //   this.state.videoCount,
-    //   currentVideo
-    // );
 
     return this.state.videoCount > 0 ? (
       <section>
@@ -70,6 +84,8 @@ export class BattleSubmission extends React.Component {
             djName={currentVideo.djName}
             voteUp={currentVideo.voteUp}
             voteDown={currentVideo.voteDown}
+            onVoteUp={this.onVoteUp}
+            onVoteDown={this.onVoteDown}
           />
           <CommentSection comments={currentVideo.comments} />
         </div>
@@ -81,7 +97,6 @@ export class BattleSubmission extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return { battleSubmission: state.battleSubmissionReducer.battleSubmission };
 };
 

@@ -14,17 +14,17 @@ export class BattleListing extends React.Component {
   //   );
   // }
   render() {
-    // const battleContainer = this.props.battle;
-    return (
-      <section className="content-block">
-        <BattleContainer />
-      </section>
-    );
+    const battles = this.props.battleListing;
+    const battleContainers = battles.map(battle => (
+      <BattleContainer battle={battle} />
+    ));
+
+    return <section className="content-block">{battleContainers}</section>;
   }
 }
 
 const mapStateToProps = state => ({
-  battleListing: state.battleListingReducer.battle,
+  battleListing: state.battleListingReducer.battles,
   battleSubmission: state.battleSubmissionReducer.battleSubmission
 });
 

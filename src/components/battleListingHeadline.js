@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function BattleListingHeadline(props) {
-  console.log('props in headline', props);
   const currentBattle = 'current battle';
   const notCurrentBattle = 'previous battle';
 
