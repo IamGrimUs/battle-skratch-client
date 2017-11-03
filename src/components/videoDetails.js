@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function VideoDetails() {
+export default function VideoDetails(props) {
   return (
     <div>
-      <h2>user name</h2>
-      <p>video title</p>
+      <h2>{props.djName}</h2>
+      <p>{props.title}</p>
     </div>
   );
 }

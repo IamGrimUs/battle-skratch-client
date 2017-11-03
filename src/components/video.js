@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function Video() {
+export default function Video(props) {
   return (
     <div className="cframe-cone-video-frame">
       <iframe
-        src="https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0"
-        frameborder="0"
-        allowfullscreen
+        src={props.videoLink}
+        frameBorder="0"
+        allowFullScreen
         title="uniqueIdentifier"
       />
     </div>

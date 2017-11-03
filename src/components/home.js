@@ -1,6 +1,6 @@
 import React from 'react';
 import BattleChampion from './battleChampion';
-import BattleCurrent from './battleCurrent';
+import BattleListing from './battleListing';
 import BattleOrder from './battleOrder';
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     <div>
       <BattleOrder />
       <BattleChampion />
-      <BattleCurrent />
+      <BattleListing />
     </div>
   );
 }

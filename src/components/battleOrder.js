@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 export class BattleOrders extends React.Component {
   render() {
-    console.log(this.props.beat);
     return (
       <section className="content-block--100">
         <section className="contest-headline-block intro-text">

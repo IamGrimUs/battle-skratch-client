@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function BattleSumissionImgLink() {
+export default function BattleSubmissionImgLink(props) {
   return (
     <div className="contest-entry-video-frame">
       <Link to="/battleSubmission">
-        <img src="../img/video-img.jpg" alt="battle submission" />
+        <img src={props.videoImgLink} alt={props.title} />
       </Link>
     </div>
   );

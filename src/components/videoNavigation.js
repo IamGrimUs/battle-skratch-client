@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-export default function VideoNavigation() {
+export default function VideoNavigation(props) {
   return (
     <div className="cframe-cone-video-next-prev">
       <p className="text-left">
-        <Link to="#">&lt; prev</Link>
+        <button onClick={props.onLoadPrevious}>&lt; prev</button>
       </p>
       <p className="text-right">
-        <Link to="#">next &gt;</Link>
+        <button onClick={props.onLoadNext}>next &gt;</button>
       </p>
     </div>
   );
