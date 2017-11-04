@@ -3,20 +3,10 @@ import { connect } from 'react-redux';
 import BattleContainer from './battleContainer';
 
 export class BattleListing extends React.Component {
-  // battleContainerSetup(battleListing, index) {
-  //   return (
-  //     <BattleContainer
-  //       key={index}
-  //       index={index}
-  //       {battleListing}
-  //       {...this.props.battleSubmission}
-  //     />
-  //   );
-  // }
   render() {
     const battles = this.props.battleListing;
-    const battleContainers = battles.map(battle => (
-      <BattleContainer battle={battle} />
+    const battleContainers = battles.map((battle, index) => (
+      <BattleContainer key={index} battle={battle} />
     ));
 
     return <section className="content-block">{battleContainers}</section>;
@@ -24,8 +14,7 @@ export class BattleListing extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  battleListing: state.battleListingReducer.battles,
-  battleSubmission: state.battleSubmissionReducer.battleSubmission
+  battleListing: state.battleListingReducer.battles
 });
 
 export default connect(mapStateToProps)(BattleListing);

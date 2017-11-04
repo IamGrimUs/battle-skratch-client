@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   beatReducer,
   battleListingReducer,
   battleSubmissionReducer,
-  formReducer
+  form: formReducer
 });
 
 export default rootReducer;

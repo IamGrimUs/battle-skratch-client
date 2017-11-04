@@ -4,15 +4,6 @@ import BattleListingHeadline from './battleListingHeadline';
 import BattleSubmissionPreview from './battleSubmissionPreview';
 
 export class BattleContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   currentBattlePosition: 0
-    //   // battleSubmission: { ...this.props.battleSubmission },
-    //   // battleListing: { ...this.props.battleListing }
-    // };
-  }
-
   render() {
     const battle = this.props.battle;
     const header = (
@@ -26,16 +17,14 @@ export class BattleContainer extends React.Component {
         discription={battle.discription}
       />
     );
-    const battleSubmissions = this.props.battleSubmission
+    const battleSubmissions = this.props.battleSubmissions
       .filter(vid => battle.videoIds.includes(vid.id))
       .map((submission, index) => {
         return (
           <BattleSubmissionPreview
             key={index}
-            index={index}
             djName={submission.djName}
             videoImgLink={submission.videoImgLink}
-            title={submission.title}
             videoLink={submission.videoLink}
           />
         );
@@ -51,7 +40,7 @@ export class BattleContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    battleSubmission: state.battleSubmissionReducer.battleSubmission
+    battleSubmissions: state.battleSubmissionReducer.battleSubmission
   };
 };
 

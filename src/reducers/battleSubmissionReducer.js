@@ -11,7 +11,9 @@ const initialState = {
       djName: 'snuffleupagus',
       voteUp: 10,
       voteDown: 3,
-      comments: [{ author: 'ralph macheo', comment: 'this video is fire!' }]
+      comments: [
+        { id: 1, author: 'ralph macheo', comment: 'this video is fire!' }
+      ]
     },
     {
       id: 2,
@@ -23,9 +25,13 @@ const initialState = {
       voteUp: 39,
       voteDown: 0,
       comments: [
-        { author: 'samonsite man', comment: 'snapper fizzle' },
-        { author: 'george', comment: 'fool, you pancaking' },
-        { author: 'big bird', comment: 'oh you aint herd about the bird?' }
+        { id: 1, author: 'samonsite man', comment: 'snapper fizzle' },
+        { id: 2, author: 'george', comment: 'fool, you pancaking' },
+        {
+          id: 3,
+          author: 'big bird',
+          comment: 'oh you aint herd about the bird?'
+        }
       ]
     }
   ]
