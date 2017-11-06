@@ -1,4 +1,5 @@
 import { ADD_BATTLESUBMISSION } from '../actions/battleSubmissionAction';
+import { ADD_COMMENT } from '../actions/commentAction';
 
 const initialState = {
   battleSubmission: [
@@ -49,9 +50,27 @@ export const battleSubmissionReducer = (state = initialState, action) => {
           djName: action.djName,
           voteUp: action.voteUp,
           voteDown: action.voteDown,
-          comments: action.comments
+          comments: []
         }
       ]
+    });
+  } else if (action.type === ADD_COMMENT) {
+    console.log('state id: ', action.videoId);
+    const videoId = action.videoId;
+    console.log('author:', action.author);
+    console.log('comment:', action.comment);
+
+    const index = state.battleSubmission.findIndex(submission => {
+      return submission.id === videoId;
+    });
+
+    state.battleSubmission[index].comments.push({
+      author: action.author,
+      comment: action.comment
+    });
+
+    return Object.assign({}, state, {
+      battleSubmission: [...state.battleSubmission]
     });
   }
   return state;

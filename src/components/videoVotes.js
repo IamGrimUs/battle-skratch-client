@@ -13,7 +13,7 @@ export default function BattleSubmissionVotes(props) {
         <span role="img" aria-label="thumb down">
           &#x1f44e;
         </span>
-        <span>{props.voteDown}</span>
+        <span>-{props.voteDown}</span>
       </button>
     </div>
   );

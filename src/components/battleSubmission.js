@@ -7,12 +7,13 @@ import './battleSubmission.css';
 
 export class BattleSubmission extends React.Component {
   constructor(props) {
+    const currentVideo = 'this.props.battleSubmission';
     super(props);
     this.state = {
       currentVideoPosition: 0,
       videoCount: 0,
-      voteUp: Number(this.props.battleSubmission.voteUp),
-      voteDown: Number(this.props.battleSubmission.voteDown)
+      voteUp: Number(currentVideo.voteUp),
+      voteDown: Number(currentVideo.voteDown)
     };
     this.loadNext = this.loadNext.bind(this);
     this.loadPrevious = this.loadPrevious.bind(this);
@@ -87,7 +88,10 @@ export class BattleSubmission extends React.Component {
             onVoteUp={this.onVoteUp}
             onVoteDown={this.onVoteDown}
           />
-          <CommentSection comments={currentVideo.comments} />
+          <CommentSection
+            comments={currentVideo.comments}
+            videoId={currentVideo.id}
+          />
         </div>
       </section>
     ) : (

@@ -7,8 +7,8 @@ export default function Comments(props) {
         <span className="cframe-ctwo-comframe-author">
           {props.commentAuthor}
         </span>
-        {props.commentText}
-        <button className="cframe-ctwo-comframe-remove">x</button>
+        {props.comment}
+        {/* <button className="cframe-ctwo-comframe-remove">x</button> */}
       </p>
     </div>
   );

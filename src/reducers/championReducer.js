@@ -21,16 +21,6 @@ const initialState = {
 
 export const championReducer = (state = initialState, action) => {
   if (action.type === DISPLAY_CHAMPION) {
-    // return {
-    //   ...state,
-    //   champions: [
-    //     {
-    //       djName: action.djName,
-    //       battlesWon: action.battlesWon,
-    //       currentBattleWon: action.currentBattleWon
-    //     }
-    //   ]
-    // };
     return Object.assign({}, state, {
       champion: [
         ...state.champion,

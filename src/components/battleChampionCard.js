@@ -15,10 +15,7 @@ export default function BattleChampionCard(props) {
       <h3 className="leader-board-user">
         <Link to="contenders">{props.djName}</Link>
       </h3>
-      <p>
-        {props.grandChampion === false ? lastBattleWon : mostBattlesWon}
-        {/* most battles won <span>{props.lastBattlesWon}</span> */}
-      </p>
+      <p>{props.grandChampion === false ? lastBattleWon : mostBattlesWon}</p>
     </section>
   );
 }

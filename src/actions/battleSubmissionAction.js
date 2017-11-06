@@ -1,4 +1,5 @@
 export const ADD_BATTLESUBMISSION = 'ADD_BATTLESUBMISSION';
+
 export const addBattleSubmission = (
   videoLink,
   videoImgLink,
