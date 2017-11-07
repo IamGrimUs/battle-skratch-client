@@ -5,26 +5,26 @@ const initialState = {
   battleSubmission: [
     {
       id: 1,
+      title: 'battle submission',
       videoLink:
         'https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0',
       videoImgLink: '../img/video-img.jpg',
-      title: 'battle submission',
       djName: 'snuffleupagus',
-      voteUp: 10,
-      voteDown: 3,
+      voteCountUp: 10,
+      voteCountDown: 3,
       comments: [
         { id: 1, author: 'ralph macheo', comment: 'this video is fire!' }
       ]
     },
     {
       id: 2,
+      title: 'the dope stuff',
       videoLink:
         'https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0',
       videoImgLink: '../img/video-img.jpg',
-      title: 'the dope stuff',
       djName: 'prad bitt',
-      voteUp: 39,
-      voteDown: 0,
+      voteCountUp: 39,
+      voteCountDown: 0,
       comments: [
         { id: 1, author: 'samonsite man', comment: 'snapper fizzle' },
         { id: 2, author: 'george', comment: 'fool, you pancaking' },

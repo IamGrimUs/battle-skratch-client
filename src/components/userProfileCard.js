@@ -14,7 +14,7 @@ export function UserProfileCard(props) {
           <p>total points</p>
           <p>{props.totalPoints}</p>
         </div>
-        <div className="user-profile-social-container">
+        {/* <div className="user-profile-social-container">
           <figure>
             <a href={props.socialIcons[0]['social_fb']} target="_blank">
               <img src="../img/facebook.jpg" alt="social icon" />
@@ -35,7 +35,7 @@ export function UserProfileCard(props) {
               <img src="../img/twitter.jpg" alt="social icon" />
             </a>
           </figure>
-        </div>
+        </div> */}
       </div>
     </div>
   );

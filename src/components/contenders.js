@@ -7,9 +7,7 @@ import './contenders.css';
 
 export class Contenders extends React.Component {
   userProfileCardSetup(contender, index) {
-    return (
-      <UserProfileCard key={index} index={index} {...this.props.contender} />
-    );
+    return <UserProfileCard key={index} {...contender} />;
   }
   render() {
     const contenders = this.props.contender.map(this.userProfileCardSetup);

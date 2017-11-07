@@ -7,6 +7,12 @@ jQuery(document).ready(function($) {
     $('.shadow-layer').addClass('is-visible');
   });
 
+  $('.navOverlaySpan').on('click', function() {
+    $('.main-content').removeClass('move-out');
+    $('#main-nav').removeClass('is-visible');
+    $('.shadow-layer').removeClass('is-visible');
+  });
+
   //close menu button
   $('.close-menu').on('click', function(event) {
     event.preventDefault();
