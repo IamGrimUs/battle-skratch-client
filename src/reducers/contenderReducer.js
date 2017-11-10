@@ -1,33 +1,13 @@
-import { ADD_CONTENDER } from '../actions/contenderAction';
+import { FETCH_CONTENDERS } from '../actions/contenderAction';
 
 const initialState = {
-  contenders: [
-    {
-      djName: 'Big Bird',
-      img: 'http://via.placeholder.com/250x250',
-      battlesEntered: '1',
-      battlesWon: '100',
-      totalPoints: '1'
-    },
-    {
-      djName: 'Snuffleupagus',
-      img: 'http://via.placeholder.com/250x250',
-      battlesEntered: '2',
-      battlesWon: '1',
-      totalPoints: '1'
-    }
-  ]
+  contenders: []
 };
 
 export const contenderReducer = (state = initialState, action) => {
-  if (action.type === ADD_CONTENDER) {
+  if (action.type === FETCH_CONTENDERS) {
     return Object.assign({}, state, {
-      contenders: [
-        ...state.contenders,
-        {
-          djName: action.djName
-        }
-      ]
+      contenders: action.contenders.users
     });
   }
   return state;

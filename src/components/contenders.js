@@ -1,16 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { UserProfileCard } from './userProfileCard';
+import { fetchContenders } from '../actions/contenderAction.js';
+import UserProfileCard from './userProfileCard';
 
 import './contenders.css';
 
 export class Contenders extends React.Component {
-  userProfileCardSetup(contender, index) {
-    return <UserProfileCard key={index} {...contender} />;
+  contenderCardSetup(contender, index) {
+    return <UserProfileCard key={index} index={index} {...contender} />;
   }
+
+  componentWillMount() {
+    this.props.fetchContenders();
+  }
+
   render() {
-    const contenders = this.props.contender.map(this.userProfileCardSetup);
+    console.log('contenders', this.props.contenders);
+    const contenders = this.props.contenders.map(this.contenderCardSetup);
+    // const contenders = this.props.contenders;
+    // const cards = [];
+    // contenders && cards.push(this.contenderCardSetup(contenders, 1));
+    // console.log(cards);
     return (
       <section>
         <h1 className="page-title">Contenders</h1>
@@ -22,8 +33,28 @@ export class Contenders extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  contender: state.contenderReducer.contenders
-});
+const mapStateToProps = state => {
+  return { contenders: state.contenderReducer.contenders };
+};
 
-export default connect(mapStateToProps)(Contenders);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchContenders: () => {
+      const headers = new Headers();
+      const req = new Request('http://localhost:8080/api/user/', {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      });
+      fetch(req)
+        .then(res => res.json())
+        .then(data => {
+          console.log('data from the server', data);
+          dispatch(fetchContenders(data));
+        })
+        .catch(err => console.log(err));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contenders);

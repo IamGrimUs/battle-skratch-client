@@ -12,22 +12,22 @@ export default function SiteNavOverlay() {
         </li>
         <li>
           <Link to="/battleCreation">
-            <span class="navOverlaySpan">battle creation</span>
+            <span className="navOverlaySpan">battle creation</span>
           </Link>
         </li>
         <li>
           <Link to="/howItWorks">
-            <span class="navOverlaySpan">how it works</span>
+            <span className="navOverlaySpan">how it works</span>
           </Link>
         </li>
         <li>
           <Link to="/battleSubmission">
-            <span class="navOverlaySpan">enter battle</span>
+            <span className="navOverlaySpan">enter battle</span>
           </Link>
         </li>
         <li>
           <Link to="/contenders">
-            <span class="navOverlaySpan">contenders</span>
+            <span className="navOverlaySpan">contenders</span>
           </Link>
         </li>
       </ul>

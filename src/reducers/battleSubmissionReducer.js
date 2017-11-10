@@ -55,10 +55,7 @@ export const battleSubmissionReducer = (state = initialState, action) => {
       ]
     });
   } else if (action.type === ADD_COMMENT) {
-    console.log('state id: ', action.videoId);
     const videoId = action.videoId;
-    console.log('author:', action.author);
-    console.log('comment:', action.comment);
 
     const index = state.battleSubmission.findIndex(submission => {
       return submission.id === videoId;

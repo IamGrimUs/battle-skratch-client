@@ -1,37 +1,63 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { fetchChampions } from '../actions/championAction';
 import BattleChampionCard from './battleChampionCard';
 
 export class BattleChampion extends React.Component {
-  championCardSetup(champion, index) {
-    const headers = new Headers();
-    const req = new Request('http://localhost:8080/api/user', {
-      method: 'GET',
-      mode: 'cors',
-      headers: headers
-    });
-    fetch(req)
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
-    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-    return <BattleChampionCard key={index} index={index} {...champion} />;
+  championCardSetup(champion, index, isGrandChampion) {
+    return (
+      <BattleChampionCard
+        key={index}
+        index={index}
+        isGrandChampion={isGrandChampion}
+        {...champion}
+      />
+    );
+  }
+
+  componentWillMount() {
+    this.props.fetchChampions();
   }
 
   render() {
-    const champions = this.props.champion.map(this.championCardSetup);
+    console.log('champions', this.props.champions);
+    const { grandChampion, currentChampion } = this.props.champions;
+    const cards = [];
+    grandChampion && cards.push(this.championCardSetup(grandChampion, 1, true));
+    currentChampion &&
+      cards.push(this.championCardSetup(currentChampion, 2, false));
+
     return (
       <section>
         <h2 className="current-champion-title">battle champions</h2>
-        <section className="content-block-leader-board">{champions}</section>
+        <section className="content-block-leader-board">{cards}</section>
       </section>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { champion: state.championReducer.champion };
+  return { champions: state.championReducer.champions };
 };
 
-export default connect(mapStateToProps)(BattleChampion);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchChampions: () => {
+      const headers = new Headers();
+      const req = new Request('http://localhost:8080/api/user/champions', {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      });
+      fetch(req)
+        .then(res => res.json())
+        .then(data => {
+          console.log('data from the server', data);
+          dispatch(fetchChampions(data));
+        })
+        .catch(err => console.log(err));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BattleChampion);

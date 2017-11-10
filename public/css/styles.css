@@ -51,17 +51,6 @@ h1.page-title {
     font-size: 3em;
   }
 }
-@media screen and (min-width: 768px) {
-  h1.page-title {
-    margin-top: 0.25em;
-    font-size: 4em;
-  }
-}
-@media screen and (min-width: 1100px) {
-  h1.page-title {
-    font-size: 5em;
-  }
-}
 
 .current-champion-title {
   font-size: 3em;
@@ -73,16 +62,12 @@ h1.page-title {
 }
 @media screen and (min-width: 768px) {
   .current-champion-title {
-    font-size: 4em;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .current-champion-title {
-    font-size: 5em;
+    font-size: 3em;
   }
 }
 .content-block-leader-board {
   width: 90%;
+  max-width: 900px;
   margin: 1em auto;
   margin-bottom: 6em;
 }
@@ -170,11 +155,6 @@ h1.page-title {
   color: #e7d697;
   font-size: 2.25em;
 }
-@media screen and (min-width: 1200px) {
-  .leader-board h3 {
-    font-size: 3em;
-  }
-}
 .leader-board p {
   text-align: center;
 }
@@ -200,6 +180,7 @@ h1.page-title {
   .content-block {
     padding-left: 0.5em;
     padding-right: 0.5em;
+    max-width: 982px;
   }
 }
 .content-block--100 .intro-text {
@@ -207,6 +188,9 @@ h1.page-title {
   margin: 0 auto;
   color: #fafafa;
   padding: 3em 0;
+}
+.intro-text {
+  max-width: 860px;
 }
 .content-block--100 .intro-text h2 {
   color: #fafafa;
@@ -278,7 +262,7 @@ h1.page-title {
   .contest-headline-block h2 {
     padding: 0 0.5em;
     font-size: 40px;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }
 .contest-headline-block h2 span {
@@ -343,7 +327,7 @@ h1.page-title {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 800px) {
   .contest-entry-block {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -353,11 +337,7 @@ h1.page-title {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media only screen and (min-width: 1580px) {
-  .contest-entry-block {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
+
 .contest-entry {
   background-color: rgba(85, 85, 92, 1);
   border-left: 2px solid rgba(85, 85, 92, 0.2);
@@ -377,7 +357,7 @@ h1.page-title {
 }
 .contest-entry-description-block p {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: #fafafa;
 }
 .contest-entry-description-block p:nth-child(2) {
@@ -431,7 +411,7 @@ h1.page-title {
 .contest-entry-button-block button a,
 .contest-entry-button-block button span {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 .contest-entry-button-block button > a {
   color: #e7d697;
