@@ -16,7 +16,6 @@ export class Contenders extends React.Component {
   }
 
   render() {
-    console.log('contenders', this.props.contenders);
     const contenders = this.props.contenders.map(this.contenderCardSetup);
     // const contenders = this.props.contenders;
     // const cards = [];
@@ -49,7 +48,6 @@ const mapDispatchToProps = dispatch => {
       fetch(req)
         .then(res => res.json())
         .then(data => {
-          console.log('data from the server', data);
           dispatch(fetchContenders(data));
         })
         .catch(err => console.log(err));

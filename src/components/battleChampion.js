@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { fetchChampions } from '../actions/championAction';
 import BattleChampionCard from './battleChampionCard';
+import { BASE_URL } from '../constant';
 
 export class BattleChampion extends React.Component {
   championCardSetup(champion, index, isGrandChampion) {
@@ -20,7 +22,6 @@ export class BattleChampion extends React.Component {
   }
 
   render() {
-    console.log('champions', this.props.champions);
     const { grandChampion, currentChampion } = this.props.champions;
     const cards = [];
     grandChampion && cards.push(this.championCardSetup(grandChampion, 1, true));
@@ -44,7 +45,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchChampions: () => {
       const headers = new Headers();
-      const req = new Request('http://localhost:8080/api/user/champions', {
+      const req = new Request(`${BASE_URL}api/user/champions`, {
         method: 'GET',
         mode: 'cors',
         headers: headers
@@ -52,7 +53,6 @@ const mapDispatchToProps = dispatch => {
       fetch(req)
         .then(res => res.json())
         .then(data => {
-          console.log('data from the server', data);
           dispatch(fetchChampions(data));
         })
         .catch(err => console.log(err));

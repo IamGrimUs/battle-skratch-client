@@ -1,26 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchCurrentBattle } from '../actions/battleAction';
+import { BASE_URL } from '../constant';
+
 export class BattleOrders extends React.Component {
+  componentWillMount() {
+    this.props.fetchCurrentBattle();
+  }
+
   render() {
+    const currentBattle = this.props.currentBattle;
+    console.log(currentBattle);
     return (
       <section className="content-block--100">
         <section className="contest-headline-block intro-text">
           <h2 className="battle-orders-title">battle orders</h2>
           <ul>
             <li>
-              get your submission in for the current battle best 30 second open
-              skratch going on now
+              get your submission in for the current battle best
+              {` ${currentBattle.battleTypeId.duration}`} second open skratch
+              going on now
             </li>
-            <li>voting ends October 29th</li>
-            <li>discription of the beat here.</li>
+            <li>voting ends {currentBattle.endDate}</li>
             <li>
               beat provided by
-              <span className="beat-provider">easy shanklin</span>
+              <span className="beat-provider">
+                {` ${currentBattle.beatId.producer}`}
+              </span>
             </li>
             <li>
               <a
-                href={this.props.beat[0].link}
+                href={currentBattle.beatId.url}
                 target="_blank"
                 className="beat-download-link"
               >
@@ -35,7 +46,27 @@ export class BattleOrders extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { beat: state.beatReducer.beat };
+  // console.log('state', state.battleReducer.currentBattle);
+  return { currentBattle: state.battleReducer.currentBattle };
 };
 
-export default connect(mapStateToProps)(BattleOrders);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCurrentBattle: () => {
+      const headers = new Headers();
+      const req = new Request(`${BASE_URL}api/battle/currentBattle`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      });
+      fetch(req)
+        .then(res => res.json())
+        .then(data => {
+          dispatch(fetchCurrentBattle(data));
+        })
+        .catch(err => console.log(err));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BattleOrders);

@@ -9,11 +9,11 @@ const initialState = {
       videoLink:
         'https://www.youtube.com/embed/YHEJuTo_T0w?rel=0&amp;showinfo=0',
       videoImgLink: '../img/video-img.jpg',
-      djName: 'snuffleupagus',
+      djName: 'george',
       voteCountUp: 10,
       voteCountDown: 3,
       comments: [
-        { id: 1, author: 'ralph macheo', comment: 'this video is fire!' }
+        { id: 1, author: 'george popadopolus', comment: 'this video is fire!' }
       ]
     },
     {
