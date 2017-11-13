@@ -37,7 +37,7 @@ export class BattleContainer extends React.Component {
         return (
           <BattleSubmissionPreview
             key={index}
-            djName={submission.userId}
+            userId={submission.userId}
             videoImgLink={submission.videoImgLink}
             videoLink={submission.videoLink}
           />

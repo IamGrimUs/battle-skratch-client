@@ -12,3 +12,9 @@ export const fetchContenders = contenders => ({
   type: FETCH_CONTENDERS,
   contenders
 });
+
+export const FETCH_CONTENDER_BY_ID = 'FETCH_CONTENDER_BY_ID';
+export const fetchContenderById = contender => ({
+  type: FETCH_CONTENDER_BY_ID,
+  contender
+});
