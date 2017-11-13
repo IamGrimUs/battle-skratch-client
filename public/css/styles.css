@@ -371,7 +371,9 @@ h1.page-title {
   margin-left: 1em;
 }
 .contest-entry-button-block button {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
   height: 60px;
   padding: 0;
   font-size: 1.25em;

@@ -11,6 +11,7 @@ export class BattleListing extends React.Component {
   }
 
   render() {
+    // console.log(this.props.battles);
     const { battlesList, battleTypes } = this.props.battles;
     for (let i = 0; i < battlesList.length; i++) {
       battlesList[i].battleTypes = battleTypes[i];

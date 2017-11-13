@@ -11,7 +11,6 @@ export class BattleOrders extends React.Component {
 
   render() {
     const currentBattle = this.props.currentBattle;
-    console.log(currentBattle);
     return (
       <section className="content-block--100">
         <section className="contest-headline-block intro-text">
@@ -24,7 +23,9 @@ export class BattleOrders extends React.Component {
             </li>
             <li>voting ends {currentBattle.endDate}</li>
             <li>
-              beat provided by
+              {` ${currentBattle.beatId.title}`}
+              <br />
+              produced by
               <span className="beat-provider">
                 {` ${currentBattle.beatId.producer}`}
               </span>

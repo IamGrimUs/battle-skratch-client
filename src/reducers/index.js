@@ -6,6 +6,7 @@ import { beatReducer } from './beatReducer';
 import { battleReducer } from './battleReducer';
 import { battleListingReducer } from './battleListingReducer';
 import { battleSubmissionReducer } from './battleSubmissionReducer';
+import { videoReducer } from './videoReducer';
 
 const rootReducer = combineReducers({
   contenderReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   battleReducer,
   battleListingReducer,
   battleSubmissionReducer,
+  videoReducer,
   form: formReducer
 });
 

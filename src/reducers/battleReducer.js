@@ -4,7 +4,8 @@ const initialState = {
   battles: {
     battlesList: [],
     beats: [],
-    battleTypes: []
+    battleTypes: [],
+    videoIds: [{}]
   },
   currentBattle: {
     id: '',
@@ -12,8 +13,7 @@ const initialState = {
     beatId: {},
     champion: '',
     endDate: '',
-    startDate: '',
-    videoIds: []
+    startDate: ''
   }
 };
 

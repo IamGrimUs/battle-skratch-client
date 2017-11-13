@@ -3,6 +3,7 @@ import BattleSubmissionLink from './battleSubmissionLink';
 import BattleSubmissionImgLink from './battleSubmissionImgLink';
 
 export default function BattleSubmissionPreview(props) {
+  console.log(props);
   return (
     <section className="contest-entry">
       <BattleSubmissionImgLink
