@@ -47,7 +47,6 @@ export class BattleOrders extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('state', state.battleReducer.currentBattle);
   return { currentBattle: state.battleReducer.currentBattle };
 };
 
@@ -63,7 +62,7 @@ const mapDispatchToProps = dispatch => {
       fetch(req)
         .then(res => res.json())
         .then(data => {
-          dispatch(fetchCurrentBattle(data));
+          dispatch(fetchCurrentBattle(data.currentBattle));
         })
         .catch(err => console.log(err));
     }

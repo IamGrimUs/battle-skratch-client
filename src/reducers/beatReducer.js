@@ -1,14 +1,7 @@
 import { ADD_BEAT } from '../actions/beatAction';
 
 const initialState = {
-  beat: [
-    {
-      title: 'Brutal Charles XXX',
-      producer: 'easy shaklin',
-      duration: 30,
-      link: 'https://soundcloud.com/grimus-2/brutal-charles-xxx'
-    }
-  ]
+  beat: {}
 };
 
 export const beatReducer = (state = initialState, action) => {

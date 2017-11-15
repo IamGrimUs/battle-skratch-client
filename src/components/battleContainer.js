@@ -37,6 +37,7 @@ export class BattleContainer extends React.Component {
         return (
           <BattleSubmissionPreview
             key={index}
+            battleId={submission.battleId}
             userId={submission.userId}
             videoImgLink={submission.videoImgLink}
             videoLink={submission.videoLink}
@@ -53,6 +54,7 @@ export class BattleContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('battle container state', ownProps);
   return {
     battleSubmissions: state.videoReducer.videos,
     battle: ownProps.battle
@@ -71,7 +73,7 @@ const mapDispatchToProps = dispatch => {
       fetch(req)
         .then(res => res.json())
         .then(data => {
-          dispatch(fetchVideos(data));
+          dispatch(fetchVideos(data.video));
         })
         .catch(err => console.log(err));
     }

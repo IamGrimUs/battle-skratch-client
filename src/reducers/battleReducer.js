@@ -24,7 +24,7 @@ export const battleReducer = (state = initialState, action) => {
     });
   } else if (action.type === FETCH_CURRENT_BATTLE) {
     return Object.assign({}, state, {
-      currentBattle: action.currentBattle.currentBattle
+      currentBattle: action.currentBattle
     });
   }
   return state;

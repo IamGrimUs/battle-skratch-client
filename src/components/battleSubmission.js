@@ -72,13 +72,14 @@ export class BattleSubmission extends React.Component {
     const currentVideo = this.props.battleSubmission[
       this.state.currentVideoPosition
     ];
-
+    // console.log('props', this.props.ownProps);
     return this.state.videoCount > 0 ? (
       <section>
         <h1 className="page-title">battle submission</h1>
         <div className="content-frame">
           <BattleSubmissionCard
             onLoadNext={this.loadNext}
+            battleId={this.battleId}
             onLoadPrevious={this.loadPrevious}
             title={currentVideo.title}
             videoLink={currentVideo.videoLink}
@@ -95,13 +96,28 @@ export class BattleSubmission extends React.Component {
         </div>
       </section>
     ) : (
-      <section>No Conent</section>
+      <section>No Content</section>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { battleSubmission: state.battleSubmissionReducer.battleSubmission };
+  return {
+    battleSubmission: () => {
+      // 1. user videoreducer over battlesubissionreducer, they're basically the same thing
+      // 2. consider adding battle id to video so we don't have to do kung fu to find it
+      // 3. filter videos of video reducer so next/prev button don't cycle through all vids of all battles
+      // just the associated one
+      // 4. might have to massage the logic with the current vid position
+      //const currentBattleId = 'state.videoReducer.videos.find(vid => vid.id === )'; // state.battleReducer.battles.find(stuff to find the battle)
+      // const submissionVideos = state.videoReducer.videos.filter(vid => {
+      //   return state.battleReducer.battles.battlesList.videoIds.id.find(
+      //     id => id === vid._id
+      //   );
+      // });
+      // console.log(submissionVideos);
+    }
+  };
 };
 
 export default connect(mapStateToProps)(BattleSubmission);
