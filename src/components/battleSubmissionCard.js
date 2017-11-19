@@ -6,6 +6,7 @@ import VideoDetails from './videoDetails';
 import VideoVotes from './videoVotes';
 
 export default function BattleSubmissionCard(props) {
+  console.log(props.djName);
   return (
     <section className="cframe-child-one">
       <Video videoLink={props.videoLink} />
@@ -13,10 +14,7 @@ export default function BattleSubmissionCard(props) {
         onLoadNext={props.onLoadNext}
         onLoadPrevious={props.onLoadPrevious}
       />
-      <VideoDetails
-        title={props.title}
-        djName={props.djName ? props.djName : 'user name error'}
-      />
+      <VideoDetails title={props.title} djName={props.djName} />
       <VideoVotes
         voteCountUp={props.voteCountUp}
         onVoteCountUp={props.onVoteCountUp}

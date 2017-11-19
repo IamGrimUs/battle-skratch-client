@@ -17,8 +17,8 @@ export class BattleSubmission extends React.Component {
       currentVideoPosition: props.currentVideoIndex,
       videoCount: props.videos.length,
       voteCountUp: currentVideo.voteCountUp,
-      voteCountDown: currentVideo.voteCountDown,
-      contenders: this.props.contenders
+      voteCountDown: currentVideo.voteCountDown
+      // djName: 'hello'
     };
     this.loadNext = this.loadNext.bind(this);
     this.loadPrevious = this.loadPrevious.bind(this);
@@ -26,21 +26,30 @@ export class BattleSubmission extends React.Component {
     this.onVoteCountDown = this.onVoteCountDown.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchContenders();
+    this.setState({
+      videoCount: this.props.videos ? this.props.videos.length : 0
+    });
+  }
+
+  // componentWillReceiveProps() {
+  //   console.log(this.props.contenders);
+  //   this.setState({
+  //     ...this.state,
+  //     djName: 'No thank you'
+  //   });
+  // }
+
   loadNext() {
     let currentVideoIndex = this.props.currentVideoIndex;
     const newPosition =
       this.state.videoCount - 1 === this.state.currentVideoPosition
         ? 0
         : ++this.state.currentVideoPosition;
-    // const newName =
-    //   this.state.djName[currentVideoIndex] ===
-    //   this.state.djName[this.state.videoCount]
-    //     ? this.state.djName[currentVideoIndex].name
-    //     : this.state.djName[currentVideoIndex++].name;
     this.setState({
       ...this.state,
       currentVideoPosition: newPosition
-      // djName: newName
     });
   }
 
@@ -53,13 +62,6 @@ export class BattleSubmission extends React.Component {
     this.setState({
       ...this.state,
       currentVideoPosition: newPosition
-    });
-  }
-
-  componentDidMount() {
-    this.props.fetchContenders();
-    this.setState({
-      videoCount: this.props.videos ? this.props.videos.length : 0
     });
   }
 
@@ -81,10 +83,7 @@ export class BattleSubmission extends React.Component {
 
   render() {
     const currentVideo = this.props.videos[this.state.currentVideoPosition];
-    // console.log('props', this.props.contenders);
-    // console.log('state', this.state.contenders);
-    // const contender = this.props.contenders[this.state.currentVideoIndex].name;
-    // console.log('contender', contender);
+    const djName = this.props.contenders[this.state.currentVideoPosition].name;
     return this.state.videoCount > 0 ? (
       <section>
         <h1 className="page-title">battle submission</h1>
@@ -95,7 +94,7 @@ export class BattleSubmission extends React.Component {
             onLoadPrevious={this.loadPrevious}
             title={currentVideo.title}
             videoLink={currentVideo.videoLink}
-            // djName={this.state.djName}
+            djName={djName}
             voteCountUp={currentVideo.voteCountUp}
             voteCountDown={currentVideo.voteCountDown}
             onVoteCountUp={this.onVoteCountUp}
