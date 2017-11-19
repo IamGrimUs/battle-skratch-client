@@ -4,7 +4,7 @@ import {
 } from '../actions/contenderAction';
 
 const initialState = {
-  contenders: [],
+  contenders: [{ name: '' }],
   contender: {}
 };
 

@@ -37,7 +37,10 @@ export class BattleContainer extends React.Component {
         return (
           <BattleSubmissionPreview
             key={index}
-            battleId={submission.battleId}
+            battleIndex={this.props.battleIndex}
+            battleIds={submission.battleIds}
+            viewedBattleId={this.props.battle.id}
+            videoId={submission.id}
             userId={submission.userId}
             videoImgLink={submission.videoImgLink}
             videoLink={submission.videoLink}
@@ -54,7 +57,6 @@ export class BattleContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('battle container state', ownProps);
   return {
     battleSubmissions: state.videoReducer.videos,
     battle: ownProps.battle

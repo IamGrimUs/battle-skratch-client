@@ -11,8 +11,8 @@ export class CommentSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoId: this.props.videoId
-      //comments: [{ author: this.props.author, comment: this.props.comment }]
+      videoId: props.videoId,
+      comments: [{ author: props.author, comment: props.comment }]
     };
   }
 
@@ -62,20 +62,20 @@ const WrappedCommentForm = reduxForm({
   onSubmitSuccess: afterSubmit
 })(CommentForm);
 
-const mapStateToProps = state => {
-  return { battleSubmission: state.battleSubmissionReducer.battleSubmission };
-};
-
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: value => {
       const comment = value.comment;
       const author = value.author;
-      dispatch(addComment(author, comment, ownProps.videoId));
+      const videoId = ownProps.videoId;
+      console.log(author);
+      console.log(comment);
+      console.log(videoId);
+      dispatch(addComment(author, comment, videoId));
       value.author = '';
       value.comment = '';
     }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);
+export default connect(null, mapDispatchToProps)(CommentSection);

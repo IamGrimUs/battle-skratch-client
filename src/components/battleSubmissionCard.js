@@ -1,8 +1,9 @@
 import React from 'react';
-import VideoVotes from './videoVotes';
-import VideoDetails from './videoDetails';
+
 import Video from './video';
 import VideoNavigation from './videoNavigation';
+import VideoDetails from './videoDetails';
+import VideoVotes from './videoVotes';
 
 export default function BattleSubmissionCard(props) {
   return (
@@ -12,12 +13,15 @@ export default function BattleSubmissionCard(props) {
         onLoadNext={props.onLoadNext}
         onLoadPrevious={props.onLoadPrevious}
       />
-      <VideoDetails title={props.title} djName={props.djName} />
+      <VideoDetails
+        title={props.title}
+        djName={props.djName ? props.djName : 'user name error'}
+      />
       <VideoVotes
-        voteUp={props.voteUp}
-        onVoteUp={props.onVoteUp}
-        voteDown={props.voteDown}
-        onVoteDown={props.onVoteDown}
+        voteCountUp={props.voteCountUp}
+        onVoteCountUp={props.onVoteCountUp}
+        voteCountDown={props.voteCountDown}
+        onVoteCountDown={props.onVoteCountDown}
       />
     </section>
   );

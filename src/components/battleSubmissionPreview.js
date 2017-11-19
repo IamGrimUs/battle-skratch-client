@@ -34,6 +34,7 @@ export default class BattleSubmissionPreview extends React.Component {
   };
 
   render() {
+    // console.log('preview props', this.props);
     return (
       <section className="contest-entry">
         <BattleSubmissionImgLink
@@ -43,38 +44,14 @@ export default class BattleSubmissionPreview extends React.Component {
         <div className="contest-entry-description-block">
           <p>{this.state.contender.name}</p>
         </div>
-        <BattleSubmissionLink videoLink={this.props.videoLink} />
+        <BattleSubmissionLink
+          // videoLink={this.props.videoLink}
+          // battleId={this.props.battleIds}
+          // battleIndex={this.props.battleIndex}
+          battleId={this.props.viewedBattleId}
+          videoId={this.props.videoId}
+        />
       </section>
     );
   }
 }
-
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     // contender: state.contenderReducer.contender,
-//     props: ownProps
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     // fetchContenderById: userId => {
-//     //   const headers = new Headers();
-//     //   const req = new Request(`${BASE_URL}api/user/${userId}`, {
-//     //     method: 'GET',
-//     //     mode: 'cors',
-//     //     headers: headers
-//     //   });
-//     //   fetch(req)
-//     //     .then(res => res.json())
-//     //     .then(data => {
-//     //       dispatch(fetchContenderById(data));
-//     //     })
-//     //     .catch(err => console.log(err));
-//     // }
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(
-//   BattleSubmissionPreview
-// );

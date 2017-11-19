@@ -70,38 +70,49 @@
   flex-wrap: nowrap;
 }
 .contest-entry-button-block button.vote {
-  width: 50%;
+  width: 30%;
+  float: left;
 }
-.contest-entry-button-block button.vote a,
+
 .contest-entry-button-block button.vote span {
-  display: inline-block;
+  color: #ffffff;
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.25em;
-  margin-left: 1.5em;
+  font-size: 2em;
+}
+.contest-entry-button-block button.vote span:nth-child(2) {
+  margin-left: 0.5em;
 }
 @media screen and (min-width: 768px) {
-  .contest-entry-button-block button.vote span {
-    margin-left: 3em;
+  .contest-entry-button-block button.vote span:nth-child(2) {
+    margin-left: 1em;
   }
 }
 .cframe-cone-video-next-prev {
   display: flex;
   flex-wrap: nowrap;
   border-bottom: 1px solid #3b393f;
+  padding: 0;
 }
 .cframe-cone-video-next-prev p {
-  font-family: 'Permanent Marker', cursive;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
-  padding: 0 0.75em;
-  width: 50%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
-.cframe-cone-video-next-prev p a {
+.cframe-cone-video-next-prev button {
+  background-color: #3b393f;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
   display: inline-block;
-  padding: 0.5em 0.75em;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.25em;
+  padding: 0.5em 1.5em;
+  transition: all 0.5s;
+  color: #e7d697;
 }
-.cframe-cone-video-next-prev p a:hover {
+.cframe-cone-video-next-prev button:hover {
   background-color: #000000;
+  transition: all 0.5s;
 }
 .cframe-child-two {
   margin-top: 2em;

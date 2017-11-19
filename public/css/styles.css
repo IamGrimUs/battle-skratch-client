@@ -375,17 +375,10 @@ h1.page-title {
   margin: 0 auto;
   margin-bottom: 0.5em;
   height: 60px;
-  padding: 0;
-  font-size: 1.25em;
-  color: #fafafa;
   text-align: center;
-  /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); */
   background: #47444b;
   border: 0;
   border-bottom: 4px solid #3b393f;
-  cursor: pointer;
-  /* -webkit-box-shadow: inset 0 -2px #3b393f;
-  box-shadow: inset 0 -2px #3b393f; */
   border-top: 2px solid #47444b;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -413,7 +406,7 @@ h1.page-title {
 .contest-entry-button-block button a,
 .contest-entry-button-block button span {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1em;
+  font-size: 1.25em;
 }
 .contest-entry-button-block button > a {
   color: #e7d697;
