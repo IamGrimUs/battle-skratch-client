@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, reset } from 'redux-form';
 
-import { addComment } from '../actions/commentAction';
+import { addComment } from '../actions/videoAction';
 import Comment from './comment';
 
 import './battleSubmission.css';
@@ -62,15 +62,18 @@ const WrappedCommentForm = reduxForm({
   onSubmitSuccess: afterSubmit
 })(CommentForm);
 
+const mapStateToProps = state => {
+  return {
+    videos: state.videoReducer.videos
+  };
+};
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: value => {
       const comment = value.comment;
       const author = value.author;
       const videoId = ownProps.videoId;
-      console.log(author);
-      console.log(comment);
-      console.log(videoId);
+      //apiCallToComments(comment).then(resp = > dispatch(addcommen.....))
       dispatch(addComment(author, comment, videoId));
       value.author = '';
       value.comment = '';
@@ -78,4 +81,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(CommentSection);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

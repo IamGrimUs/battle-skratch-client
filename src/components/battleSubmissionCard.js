@@ -6,7 +6,6 @@ import VideoDetails from './videoDetails';
 import VideoVotes from './videoVotes';
 
 export default function BattleSubmissionCard(props) {
-  console.log(props.djName);
   return (
     <section className="cframe-child-one">
       <Video videoLink={props.videoLink} />

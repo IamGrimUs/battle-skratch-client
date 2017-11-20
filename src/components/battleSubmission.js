@@ -108,6 +108,7 @@ const mapStateToProps = (state, ownProps) => {
   const videoId = _.get(ownProps, 'match.params.videoId', '');
   videos = videos.filter(video => video.battleIds.find(b => b.id === battleId));
   const currentVideoIndex = videos.findIndex(video => video.id === videoId);
+  console.log(currentVideoIndex);
   return {
     videos,
     currentVideoIndex,

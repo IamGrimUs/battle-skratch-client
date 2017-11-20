@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchChampions } from '../actions/championAction';
+import { fetchChampions } from '../actions/contenderAction';
 import BattleChampionCard from './battleChampionCard';
 import { BASE_URL } from '../constant';
 
@@ -38,7 +38,7 @@ export class BattleChampion extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { champions: state.championReducer.champions };
+  return { champions: state.contenderReducer.champions };
 };
 
 const mapDispatchToProps = dispatch => {
