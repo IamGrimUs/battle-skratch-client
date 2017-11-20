@@ -18,7 +18,6 @@ export class BattleSubmission extends React.Component {
       videoCount: props.videos.length,
       voteCountUp: currentVideo.voteCountUp,
       voteCountDown: currentVideo.voteCountDown
-      // djName: 'hello'
     };
     this.loadNext = this.loadNext.bind(this);
     this.loadPrevious = this.loadPrevious.bind(this);
@@ -33,16 +32,7 @@ export class BattleSubmission extends React.Component {
     });
   }
 
-  // componentWillReceiveProps() {
-  //   console.log(this.props.contenders);
-  //   this.setState({
-  //     ...this.state,
-  //     djName: 'No thank you'
-  //   });
-  // }
-
   loadNext() {
-    let currentVideoIndex = this.props.currentVideoIndex;
     const newPosition =
       this.state.videoCount - 1 === this.state.currentVideoPosition
         ? 0
