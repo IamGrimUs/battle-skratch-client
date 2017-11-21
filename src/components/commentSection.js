@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, reset } from 'redux-form';
 
+import { BASE_URL } from '../constant';
 import { addComment } from '../actions/videoAction';
 import Comment from './comment';
 
@@ -62,6 +63,22 @@ const WrappedCommentForm = reduxForm({
   onSubmitSuccess: afterSubmit
 })(CommentForm);
 
+const pushVideoComment = (videoId, author, comment) => {
+  //const data = 'jello';
+  const headers = new Headers();
+  const req = new Request(
+    `${BASE_URL}api/video/${videoId}/${author}/${comment}`,
+    {
+      method: 'PUT',
+      mode: 'cors',
+      //body: 'data',
+      headers: headers
+    }
+  );
+  console.log(req);
+  fetch(req).catch(err => console.log(err));
+};
+
 const mapStateToProps = state => {
   return {
     videos: state.videoReducer.videos
@@ -73,8 +90,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const comment = value.comment;
       const author = value.author;
       const videoId = ownProps.videoId;
+
       //apiCallToComments(comment).then(resp = > dispatch(addcommen.....))
       dispatch(addComment(author, comment, videoId));
+      pushVideoComment(videoId, author, comment);
       value.author = '';
       value.comment = '';
     }
