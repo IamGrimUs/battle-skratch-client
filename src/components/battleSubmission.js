@@ -23,6 +23,7 @@ export class BattleSubmission extends React.Component {
     this.loadPrevious = this.loadPrevious.bind(this);
     this.onVoteCountUp = this.onVoteCountUp.bind(this);
     this.onVoteCountDown = this.onVoteCountDown.bind(this);
+    this.updateVoteInDb = this.updateVoteInDb.bind(this);
   }
 
   componentDidMount() {
@@ -56,11 +57,27 @@ export class BattleSubmission extends React.Component {
   }
 
   onVoteCountUp() {
+    const currentVideoId = this.props.videos[this.state.currentVideoPosition]
+      .id;
     this.setState({
       ...this.state,
       voteCountUp: ++this.props.videos[this.state.currentVideoPosition]
         .voteCountUp
     });
+    this.updateVoteInDb(currentVideoId);
+  }
+
+  updateVoteInDb(currentVideoId) {
+    const headers = new Headers();
+    const req = new Request(
+      `${BASE_URL}api/video/voteCountUp/${currentVideoId}`,
+      {
+        method: 'PUT',
+        mode: 'cors',
+        headers: headers
+      }
+    );
+    fetch(req).catch(err => console.log(err));
   }
 
   onVoteCountDown() {
@@ -108,7 +125,6 @@ const mapStateToProps = (state, ownProps) => {
   const videoId = _.get(ownProps, 'match.params.videoId', '');
   videos = videos.filter(video => video.battleIds.find(b => b.id === battleId));
   const currentVideoIndex = videos.findIndex(video => video.id === videoId);
-  console.log(currentVideoIndex);
   return {
     videos,
     currentVideoIndex,
