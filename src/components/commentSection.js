@@ -64,17 +64,14 @@ const WrappedCommentForm = reduxForm({
 })(CommentForm);
 
 const pushVideoComment = (videoId, author, comment) => {
-  //const data = 'jello';
-  const headers = new Headers();
-  const req = new Request(
-    `${BASE_URL}api/video/${videoId}/${author}/${comment}`,
-    {
-      method: 'PUT',
-      mode: 'cors',
-      //body: 'data',
-      headers: headers
-    }
-  );
+  const data = JSON.stringify({ author, comment });
+  const headers = new Headers({ 'Content-Type': 'application/json' });
+  const req = new Request(`${BASE_URL}api/video/${videoId}`, {
+    method: 'PUT',
+    mode: 'cors',
+    body: data,
+    headers: headers
+  });
   console.log(req);
   fetch(req).catch(err => console.log(err));
 };
