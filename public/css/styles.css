@@ -190,7 +190,7 @@ h1.page-title {
   .content-block {
     padding-left: 0.5em;
     padding-right: 0.5em;
-    max-width: 982px;
+    max-width: 1280px;
   }
 }
 .content-block--100 .intro-text {
@@ -329,7 +329,7 @@ h1.page-title {
 .contest-entry-block {
   display: grid;
   grid-gap: 0.5em;
-  padding: 0 0.5em;
+  padding: 0.5em;
   grid-template-columns: repeat(1, 1fr);
 }
 @media only screen and (min-width: 520px) {
@@ -350,6 +350,7 @@ h1.page-title {
 
 .contest-entry {
   background-color: rgba(85, 85, 92, 1);
+  padding-bottom: 0.75em;
   border-left: 2px solid rgba(85, 85, 92, 0.2);
   border-right: 2px solid rgba(85, 85, 92, 0.2);
   border-radius: 2px;
@@ -363,7 +364,7 @@ h1.page-title {
   height: auto;
 }
 .contest-entry-description-block {
-  padding: 0.5em 0.75em 0.75em;
+  padding: 1.25em 0.75em;
 }
 .contest-entry-description-block p {
   font-family: 'Permanent Marker', cursive;
@@ -381,7 +382,7 @@ h1.page-title {
   margin-left: 1em;
 }
 .contest-entry-button-block button {
-  width: 80%;
+  width: 93%;
   margin: 0 auto;
   margin-bottom: 0.5em;
   height: 60px;
@@ -416,7 +417,7 @@ h1.page-title {
 .contest-entry-button-block button a,
 .contest-entry-button-block button span {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 .contest-entry-button-block button > a {
   color: #e7d697;

@@ -7,21 +7,21 @@ export default function SiteNavOverlay() {
       <ul>
         <li>
           <Link to="/login">
-            <span>login</span>
+            <span className="navOverlaySpan">login</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/battleCreation">
             <span className="navOverlaySpan">battle creation</span>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/howItWorks">
             <span className="navOverlaySpan">how it works</span>
           </Link>
         </li>
         <li>
-          <Link to="/battleSubmission">
+          <Link to="/enterBattle">
             <span className="navOverlaySpan">enter battle</span>
           </Link>
         </li>

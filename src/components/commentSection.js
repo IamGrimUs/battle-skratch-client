@@ -87,8 +87,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const comment = value.comment;
       const author = value.author;
       const videoId = ownProps.videoId;
-
-      //apiCallToComments(comment).then(resp = > dispatch(addcommen.....))
       dispatch(addComment(author, comment, videoId));
       pushVideoComment(videoId, author, comment);
       value.author = '';
