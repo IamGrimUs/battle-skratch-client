@@ -7,15 +7,15 @@ export default class SiteNav extends React.Component {
     return (
       <header className="header">
         <section className="menu-block">
+          <Link to="#main-nav" className="menu-trigger">
+            Menu
+            <span />
+          </Link>
           <div className="logo-block">
             <Link to="/">
               <h1>battle skratch</h1>
             </Link>
           </div>
-          <Link to="#main-nav" className="menu-trigger">
-            Menu
-            <span />
-          </Link>
         </section>
       </header>
     );
