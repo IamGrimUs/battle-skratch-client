@@ -14,7 +14,7 @@ export default function BattleSubmissionVotes(props) {
           &#x1f44e;
         </span>
         <span>
-          {props.voteCountDown === 0
+          {props.voteCountDown === 0 || props.voteCountDown < 0
             ? props.voteCountDown
             : `-${props.voteCountDown}`}
         </span>

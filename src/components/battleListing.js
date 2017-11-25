@@ -2,24 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchBattles } from '../actions/battleAction';
+import { fetchContenders } from '../actions/contenderAction';
 import { BASE_URL } from '../constant';
 import BattleContainer from './battleContainer';
 
 export class BattleListing extends React.Component {
   componentWillMount() {
     this.props.fetchBattles();
+    this.props.fetchContenders();
   }
 
   render() {
-    // console.log(this.props.battles);
     const { battlesList, battleTypes } = this.props.battles;
     for (let i = 0; i < battlesList.length; i++) {
       battlesList[i].battleTypes = battleTypes[i];
     }
-
-    // console.log('props.battlesList', battlesList);
-    // console.log('props.beats', beats);
-    // console.log('props.battleTypes', battleTypes);
 
     const battleListing = battlesList.map((battle, index) => (
       <BattleContainer
@@ -34,7 +31,8 @@ export class BattleListing extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    battles: state.battleReducer.battles
+    battles: state.battleReducer.battles,
+    contenders: state.contenderReducer.contenders
   };
 };
 
@@ -51,6 +49,20 @@ const mapDispatchToProps = dispatch => {
         .then(res => res.json())
         .then(data => {
           dispatch(fetchBattles(data));
+        })
+        .catch(err => console.log(err));
+    },
+    fetchContenders: () => {
+      const headers = new Headers();
+      const req = new Request(`${BASE_URL}api/user/`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      });
+      fetch(req)
+        .then(res => res.json())
+        .then(data => {
+          dispatch(fetchContenders(data));
         })
         .catch(err => console.log(err));
     }

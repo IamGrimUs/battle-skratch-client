@@ -5,28 +5,7 @@ import {
 } from '../actions/contenderAction';
 
 const initialState = {
-  contenders: [
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' },
-    { name: '' }
-  ],
+  contenders: [{ name: '' }],
   contender: {},
   champions: {}
 };

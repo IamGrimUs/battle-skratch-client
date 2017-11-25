@@ -24,7 +24,7 @@ export default class App extends React.Component {
           <Route exact path="/contenders" component={Contenders} />
           <Route
             exact
-            path="/battleSubmission/:battleId/:videoId"
+            path="/battleSubmission/:battleId/:videoId/"
             component={BattleSubmission}
           />
           <Route exact path="/battleCreation" component={BattleCreation} />

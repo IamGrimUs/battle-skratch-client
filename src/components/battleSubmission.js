@@ -23,7 +23,8 @@ export class BattleSubmission extends React.Component {
     this.loadPrevious = this.loadPrevious.bind(this);
     this.onVoteCountUp = this.onVoteCountUp.bind(this);
     this.onVoteCountDown = this.onVoteCountDown.bind(this);
-    this.updateVoteInDb = this.updateVoteInDb.bind(this);
+    this.updateVoteUpInDb = this.updateVoteUpInDb.bind(this);
+    this.updateVoteDownInDb = this.updateVoteDownInDb.bind(this);
   }
 
   componentDidMount() {
@@ -64,10 +65,10 @@ export class BattleSubmission extends React.Component {
       voteCountUp: ++this.props.videos[this.state.currentVideoPosition]
         .voteCountUp
     });
-    this.updateVoteInDb(currentVideoId);
+    this.updateVoteUpInDb(currentVideoId);
   }
 
-  updateVoteInDb(currentVideoId) {
+  updateVoteUpInDb(currentVideoId) {
     const headers = new Headers();
     const req = new Request(
       `${BASE_URL}api/video/voteCountUp/${currentVideoId}`,
@@ -80,17 +81,36 @@ export class BattleSubmission extends React.Component {
     fetch(req).catch(err => console.log(err));
   }
 
+  updateVoteDownInDb(currentVideoId) {
+    const headers = new Headers();
+    const req = new Request(
+      `${BASE_URL}api/video/voteCountDown/${currentVideoId}`,
+      {
+        method: 'PUT',
+        mode: 'cors',
+        headers: headers
+      }
+    );
+    fetch(req).catch(err => console.log(err));
+  }
+
   onVoteCountDown() {
+    const currentVideoId = this.props.videos[this.state.currentVideoPosition]
+      .id;
     this.setState({
       ...this.state,
-      voteCountDown: ++this.props.videos[this.state.currentVideoPosition]
+      voteCountDown: --this.props.videos[this.state.currentVideoPosition]
         .voteCountDown
     });
+    this.updateVoteDownInDb(currentVideoId);
   }
 
   render() {
     const currentVideo = this.props.videos[this.state.currentVideoPosition];
-    const djName = this.props.contenders[this.state.currentVideoPosition].name;
+    const dj = this.props.contenders.filter(
+      dj => dj.id === currentVideo.userId
+    );
+    const djName = dj[0].name;
     return this.state.videoCount > 0 ? (
       <section>
         <h1 className="page-title">battle submission</h1>
@@ -127,6 +147,8 @@ const mapStateToProps = (state, ownProps) => {
   const currentVideoIndex = videos.findIndex(video => video.id === videoId);
   return {
     videos,
+    battleId,
+    videoId,
     currentVideoIndex,
     currentVideo: videos[currentVideoIndex],
     contenders: state.contenderReducer.contenders

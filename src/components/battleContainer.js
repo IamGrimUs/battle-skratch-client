@@ -13,6 +13,7 @@ export class BattleContainer extends React.Component {
   }
 
   render() {
+    // console.log(this.props.battleSubmissions);
     const battle = this.props.battle;
     const header = (
       <BattleListingHeadline
