@@ -1,7 +1,8 @@
 import {
   FETCH_CONTENDERS,
   FETCH_CONTENDER_BY_ID,
-  FETCH_CHAMPIONS
+  FETCH_CHAMPIONS,
+  FETCH_CURRENT_CONTENDER
 } from '../actions/contenderAction';
 
 const initialState = {
@@ -15,13 +16,20 @@ export const contenderReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       contenders: action.contenders.users
     });
-  } else if (action.type === FETCH_CONTENDER_BY_ID) {
+  }
+  if (action.type === FETCH_CONTENDER_BY_ID) {
     return Object.assign({}, state, {
       contender: action.contender
     });
-  } else if (action.type === FETCH_CHAMPIONS) {
+  }
+  if (action.type === FETCH_CHAMPIONS) {
     return Object.assign({}, state, {
       champions: action.champions
+    });
+  }
+  if (action.type === FETCH_CURRENT_CONTENDER) {
+    return Object.assign({}, state, {
+      contender: action.contender
     });
   }
   return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import BattleChampion from './battleChampion';
 import { fetchContenders } from '../actions/contenderAction.js';
 import UserProfileCard from './userProfileCard';
 
@@ -23,6 +23,7 @@ export class Contenders extends React.Component {
     // console.log(cards);
     return (
       <section>
+        <BattleChampion />
         <h1 className="page-title">Contenders</h1>
         <div className="background-color-container">
           <section className="all-users-container">{contenders}</section>

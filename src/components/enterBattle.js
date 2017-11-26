@@ -13,7 +13,7 @@ export class EnterBattle extends React.Component {
   }
 
   createVideo(videoLink, videoTitle) {
-    console.log('this.props.currentBattleId ->', this.props.currentBattleId);
+    // console.log('this.props.currentBattleId ->', this.props.currentBattleId);
     const data = JSON.stringify({
       videoLink,
       videoTitle,
@@ -45,10 +45,6 @@ export class EnterBattle extends React.Component {
       <section>
         <h1 className="page-title">enter the battle</h1>
         <section className="login-form-container">
-          {/* <form ref="commentForm">
-            <Input type="text" placeholder="link to youtube video" required />
-            <button type="submit" hidden />
-          </form> */}
           <WrappedCommentForm onSubmit={this.onSubmit} />
         </section>
       </section>
@@ -56,7 +52,7 @@ export class EnterBattle extends React.Component {
   }
 }
 
-function VideoCreationForm(props) {
+const VideoCreationForm = props => {
   const { handleSubmit, pristine, submitting } = props;
   return (
     <form className="videoCreationForm" onSubmit={handleSubmit}>
@@ -64,7 +60,7 @@ function VideoCreationForm(props) {
         name="videoTitle"
         type="text"
         component="input"
-        placeholder="your video title"
+        placeholder="video title"
         required
       />
       <Field
@@ -77,7 +73,7 @@ function VideoCreationForm(props) {
       <input type="submit" disabled={pristine || submitting} hidden />
     </form>
   );
-}
+};
 
 const afterSubmit = value => reset('VideoCreationForm');
 const WrappedCommentForm = reduxForm({

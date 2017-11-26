@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Greeting from './greeting';
 import HomePage from './home';
 import Login from './login';
 import BattleSubmission from './battleSubmission';
@@ -16,7 +17,9 @@ export default class App extends React.Component {
     return (
       <Router>
         <section>
-          <Route exact path="/" component={HomePage} />
+          <SiteNav />
+          <Route exact path="/" component={Greeting} />
+          <Route exact path="/home" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/userProfileEdit" component={UserProfileEdit} />
           <Route exact path="/howItWorks" component={HowItWorks} />
@@ -28,7 +31,6 @@ export default class App extends React.Component {
             component={BattleSubmission}
           />
           <Route exact path="/battleCreation" component={BattleCreation} />
-          <SiteNav />
           <SiteNavOverlay />
         </section>
       </Router>

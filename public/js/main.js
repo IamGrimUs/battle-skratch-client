@@ -7,10 +7,9 @@ jQuery(document).ready(function($) {
     $('.shadow-layer').addClass('is-visible');
   });
 
-  $('.navOverlaySpan').on('click', function() {
+  $('li').on('click', function() {
     $('.main-content').removeClass('move-out');
     $('#main-nav').removeClass('is-visible');
-    $('.shadow-layer').removeClass('is-visible');
   });
 
   //close menu button
@@ -18,7 +17,6 @@ jQuery(document).ready(function($) {
     event.preventDefault();
     $('.main-content').removeClass('move-out');
     $('#main-nav').removeClass('is-visible');
-    $('.shadow-layer').removeClass('is-visible');
   });
 
   //clipped image - blur effect

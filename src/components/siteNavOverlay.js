@@ -10,19 +10,24 @@ export default function SiteNavOverlay() {
             <span className="navOverlaySpan">login</span>
           </Link>
         </li>
-        {/* <li>
-          <Link to="/battleCreation">
-            <span className="navOverlaySpan">battle creation</span>
-          </Link>
-        </li> */}
         <li>
           <Link to="/howItWorks">
             <span className="navOverlaySpan">how it works</span>
           </Link>
         </li>
         <li>
+          <Link to="/battleOrders">
+            <span className="navOverlaySpan">battle orders</span>
+          </Link>
+        </li>
+        <li>
           <Link to="/enterBattle">
             <span className="navOverlaySpan">enter battle</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/home">
+            <span className="navOverlaySpan">battle list</span>
           </Link>
         </li>
         <li>
@@ -32,8 +37,7 @@ export default function SiteNavOverlay() {
         </li>
       </ul>
       <Link to="/" className="close-menu">
-        Close
-        <span />
+        <span>Close</span>
       </Link>
     </nav>
   );

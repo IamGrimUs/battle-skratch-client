@@ -34,7 +34,7 @@ export class CommentSection extends React.Component {
   }
 }
 
-function CommentForm(props) {
+const CommentForm = props => {
   const { handleSubmit, pristine, submitting } = props;
   return (
     <form className="comment-form" onSubmit={handleSubmit}>

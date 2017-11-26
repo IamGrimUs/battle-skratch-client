@@ -1,26 +1,77 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { reduxForm, Field, reset } from 'redux-form';
+
+import { fetchCurrentContender } from '../actions/contenderAction';
+// import { BASE_URL } from '../constant';
+
 import './login.css';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
+  
   render() {
     return (
-      <section>
-        <h1 className="page-title">login fella</h1>
+      <section className="login-container">
+        <h2>login fella</h2>
         <section className="login-form-container">
-          <div className="google-login">
+          {/* <div className="google-login">
             <a href="{BASE_URL}/auth/google">
               <div className="google-login-button-container">
                 <span>Sign In with Google</span>
               </div>
             </a>
-          </div>
-          {/* <form ref="commentForm" className="comment-form">
-            <Input type="text" placeholder="username" required />
-            <Input type="password" placeholder="password" required />
-            <button type="submit" hidden />
-          </form> */}
+          </div> */}
+          <WrappedLoginForm onSubmit={this.props.onSubmit} />
         </section>
       </section>
     );
   }
 }
+const LoginForm = props => {
+  const { handleSubmit, pristine, submitting } = props;
+  return (
+    <form className="login-form" onSubmit={handleSubmit}>
+      <Field
+        name="userName"
+        type="text"
+        component="input"
+        placeholder="user name"
+        required
+      />
+      <Field
+        name="password"
+        type="text"
+        component="input"
+        placeholder="password"
+        required
+      />
+      <input type="submit" disabled={pristine || submitting} hidden />
+    </form>
+  );
+};
+
+const captureUserLogin = ( userName, password) => {
+  const data = JSON.stringify({userName, password});
+  console.log(data);
+}
+
+const afterSubmit = value => reset('VideoCreationForm');
+const WrappedLoginForm = reduxForm({
+  form: 'VideoCreationForm',
+  onSubmitSuccess: afterSubmit
+})(LoginForm);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit: value => {
+      const userName = value.userName;
+      const password = value.password;
+      dispatch(fetchCurrentContender(userName, password));
+      captureUserLogin(userName, password);
+      value.userName = '';
+      value.password = '';
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Login);

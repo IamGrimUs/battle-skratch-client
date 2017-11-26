@@ -11,12 +11,13 @@ export default class SiteNav extends React.Component {
             Menu
             <span />
           </Link>
-          <div className="logo-block">
-            <Link to="/">
-              <h1>battle skratch</h1>
-            </Link>
-          </div>
         </section>
+        <div className="logo-block">
+          <Link to="/">
+            <img src="./img/dj-monk.png" alt="battle skratch logo"className="logo-img" />
+            <h1>battle skratch</h1>
+          </Link>
+        </div>
       </header>
     );
   }

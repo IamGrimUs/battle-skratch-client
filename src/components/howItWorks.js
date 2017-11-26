@@ -1,12 +1,10 @@
 import React from 'react';
-import SiteNav from './siteNav';
 import './howItWorks.css';
 
 export default class HowItWorks extends React.Component {
   render() {
     return (
       <section>
-        <SiteNav />
         <h1 className="page-title">How it works</h1>
         <section className="instruction-container">
           <p>
