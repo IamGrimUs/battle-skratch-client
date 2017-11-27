@@ -42,9 +42,43 @@ export class EnterBattle extends React.Component {
 
   render() {
     return (
-      <section>
-        <h1 className="page-title">enter the battle</h1>
-        <section className="login-form-container">
+      <section className="enter-battle">
+        <h2>enter the battle</h2>
+        <section className="enter-battle-container">
+          <p class="black">Submit a video for the current battle</p>
+          <ul>
+            <li>
+              <span className="black">Step one:</span> Upload the video to your
+              youtube account
+            </li>
+            <li>
+              <span className="black">Step two:</span> Click the share link just
+              below the video
+              <br />
+              <img src="../img/youtube_share_button_300x145.png" />
+            </li>
+            <li>
+              <span className="black">Step three:</span> Click the embed link in
+              the bottom right corner
+              <br />
+              <img src="../img/youtube_embed_button_300x149.png" />
+            </li>
+            <li>
+              <span className="black">Step four:</span> Copy the embed video
+              code. You can leave the options checked or uncheck them it's your
+              call.
+              <br />
+              <img
+                src="../img/youtube_embed_code_600x230.png"
+                className="code"
+              />
+            </li>
+            <li>
+              <span className="black">Step five:</span> Enter the title of the
+              video in the first input field &amp; paste the embed code from
+              youtube in the second.
+            </li>
+          </ul>
           <WrappedCommentForm onSubmit={this.onSubmit} />
         </section>
       </section>
@@ -67,7 +101,7 @@ const VideoCreationForm = props => {
         name="videoCreation"
         type="text"
         component="input"
-        placeholder="paste your youtube share link"
+        placeholder="paste the youtube embed code here"
         required
       />
       <input type="submit" disabled={pristine || submitting} hidden />

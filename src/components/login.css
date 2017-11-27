@@ -7,14 +7,30 @@
   color: #000000;
   font-size: 32px;
   font-size: 2rem;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   margin-top: 0.25rem;
   text-align: center;
+}
+.login-form-container p {
+  margin-top: 1.5em;
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.login-form-container .black {
+  color: #000000;
+  font-weight: 600;
+}
+.login-form-container .markerFont {
+  font-family: 'Permanent Marker', 'Open Sans';
 }
 .login-form input {
   border: 0;
   width: 100%;
-  background-color:#fafafa;
+  margin-top: 2rem;
+  background-color: #fafafa;
   font-size: 1.15rem;
   padding: 1em 0.75em;
   border-bottom: 1px solid rgba(85, 85, 92, 0.4);
@@ -22,14 +38,10 @@
   resize: vertical;
 }
 .login-form input:required {
-  box-shadow:none;
+  box-shadow: none;
 }
 .login-form input:invalid {
-    box-shadow:0;
-}
-
-.login-form input:nth-child(2) {
-  margin-top: 2rem;
+  box-shadow: 0;
 }
 /* .google-login {
   width: 100%;

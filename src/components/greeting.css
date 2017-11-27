@@ -1,6 +1,7 @@
 .introduction .instruction-container {
   width: 90%;
   max-width: 560px;
+  margin: 0 auto;
   margin-top: 4em !important;
 }
 .introduction h2 {
@@ -11,6 +12,11 @@
   margin-top: 0.25rem;
   text-align: center;
 }
-.black {
-  color: #000000;
+.introduction .instruction-container p {
+  margin-top: 1.5em;
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
 }

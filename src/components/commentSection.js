@@ -55,7 +55,7 @@ const CommentForm = props => {
       <input type="submit" disabled={pristine || submitting} hidden />
     </form>
   );
-}
+};
 
 const afterSubmit = value => reset('CommentForm');
 const WrappedCommentForm = reduxForm({

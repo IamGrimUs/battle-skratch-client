@@ -4,31 +4,60 @@ import { connect } from 'react-redux';
 import { fetchCurrentBattle } from '../actions/battleAction';
 import { BASE_URL } from '../constant';
 
+import './battleOrders.css';
+
 export class BattleOrders extends React.Component {
   componentWillMount() {
     this.props.fetchCurrentBattle();
   }
 
   render() {
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
     const currentBattle = this.props.currentBattle;
+    const description = this.props.currentBattle.battleTypeId.description;
+    console.log(this.props.currentBattle);
     return (
-      <section className="content-block--100">
-        <section className="contest-headline-block intro-text">
-          <h2 className="battle-orders-title">battle orders</h2>
+      <section className="battle-orders">
+        <h2>battle orders</h2>
+        <section className="instruction-container">
           <ul>
             <li>
-              get your submission in for the current battle best
-              {` ${currentBattle.battleTypeId.duration}`} second open skratch
-              going on now
+              Get your submission in for the current battle<br />
+              <span className="black">
+                best {`${currentBattle.battleTypeId.duration}`} second open
+                skratch routine
+              </span>{' '}
+              going on now.
             </li>
-            <li>voting ends {currentBattle.endDate}</li>
+            <li className="black">
+              voting ends {currentBattle.endDate.slice(0, 10)}
+            </li>
             <li>
+              <span className="black">video length:</span>{' '}
+              {`${currentBattle.battleTypeId.duration}`} seconds
+            </li>
+            <li>
+              <span className="black">battle contraints:</span>{' '}
+              {description === 'open skratch'
+                ? `${description} no limits here. Go nuts!`
+                : `${description} how will you rock a limited tool set?`}
+            </li>
+            <li>
+              <span className="black">offical beat:</span>
               {` ${currentBattle.beatId.title}`}
               <br />
               produced by
               <span className="beat-provider">
                 {` ${currentBattle.beatId.producer}`}
               </span>
+              <br />
+              The link below will navagate you to soundcloud.com where you can
+              download the beat by clicking the ...more button - just below the
+              write a comment input field.
             </li>
             <li>
               <a

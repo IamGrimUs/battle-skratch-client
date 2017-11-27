@@ -22,7 +22,7 @@ export default function SiteNavOverlay() {
         </li>
         <li>
           <Link to="/enterBattle">
-            <span className="navOverlaySpan">enter battle</span>
+            <span className="navOverlaySpan">enter the battle</span>
           </Link>
         </li>
         <li>

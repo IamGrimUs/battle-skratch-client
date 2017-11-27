@@ -1,0 +1,51 @@
+.battle-orders .instruction-container {
+  width: 90%;
+  max-width: 560px;
+  margin: 0 auto;
+  margin-top: 4em !important;
+}
+.battle-orders h2 {
+  color: #000000;
+  font-size: 32px;
+  font-size: 2rem;
+  font-family: 'Permanent Marker', cursive;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.battle-orders .instruction-container p,
+.battle-orders .instruction-container ul li {
+  margin-top: 1.5em;
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.battle-orders .instruction-container ul li:last-child {
+  margin-top: 0.75em;
+}
+.battle-orders .black {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+.battle-orders .beat-provider {
+  color: #000000;
+  font-size: 18px;
+  font-size: 1.5rem;
+  font-family: 'Permanent Marker', cursive;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.battle-orders .beat-download-link {
+  background-color: #9e3901;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+  color: #fafafa;
+  padding: 0.5em 0.75em;
+  transition: all 0.2s;
+}
+.battle-orders .beat-download-link:hover {
+  background-color: #c96302;
+  transition: all 0.2s;
+}

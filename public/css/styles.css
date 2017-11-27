@@ -45,7 +45,7 @@ img {
 page titles
 -------------------------------- */
 h1.page-title {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 2.5em;
   margin-top: 0.5em;
   text-align: center;
@@ -62,7 +62,7 @@ h1.page-title {
   text-align: center;
   margin: 0.5em 0 0.5em 0;
   color: #3b393f;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
 }
 @media screen and (min-width: 768px) {
   .current-champion-title {
@@ -129,14 +129,14 @@ h1.page-title {
   font-size: 5em;
   margin: 0.25em;
   color: #3b393f;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   -webkit-text-fill-color: #e7d697; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
 }
 
 .leader-board p {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   margin: 1.5em 0;
   color: #3b393f;
   font-size: 1.5rem;
@@ -154,7 +154,7 @@ h1.page-title {
 }
 
 .leader-board h3 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 2em;
   margin-top: 0.5em;
   line-height: 1;
@@ -166,7 +166,7 @@ h1.page-title {
 }
 .leader-board h4,
 .leader-board grandchampion h4 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 2.25em;
 }
 .leader-board p {
@@ -217,23 +217,9 @@ h1.page-title {
   padding-top: 0.5em;
   line-height: 1.5;
 }
-.beat-download-link {
-  display: inline-block;
-  color: #e7d697;
-  background-color: #3b393f;
-  border: 2px solid #e7d697;
-  margin-top: 1em;
-  padding: 0.5em 0.75em;
-  transition: all 0.2s;
-  border-radius: 2px;
-  font-family: 'Permanent Marker', cursive;
-}
-.beat-download-link:hover {
-  background-color: #000000;
-  transition: all 0.2s;
-}
+
 .intro-text .battle-orders-title {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000;
 }
@@ -307,7 +293,7 @@ h1.page-title {
   padding: 0.25em 0.5em;
   display: inline-block;
   color: #fafafa;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 1rem;
 }
 
@@ -371,7 +357,7 @@ h1.page-title {
   padding: 1.25em 0.75em;
 }
 .contest-entry-description-block p {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 1.5rem;
   color: #fafafa;
 }
@@ -420,7 +406,7 @@ h1.page-title {
 }
 .contest-entry-button-block button a,
 .contest-entry-button-block button span {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   font-size: 1.25rem;
 }
 .contest-entry-button-block button > a {

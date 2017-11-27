@@ -1,11 +1,52 @@
-.videoCreationForm input {
-  display: block;
-  margin: 2em;
-  width: 100%;
-  padding: 1em 0.75em;
-  font-size: 1.25em;
+.enter-battle .enter-battle-container {
+  width: 90%;
+  max-width: 560px;
+  margin: 4em auto;
 }
-
-.videoCreationForm input:last-child {
-  display: none;
+.enter-battle h2 {
+  color: #000000;
+  font-size: 32px;
+  font-size: 2rem;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.enter-battle-container p,
+.enter-battle-container ul li {
+  margin-top: 1.5em;
+  color: #3b393f;
+  font-size: 32px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.enter-battle-container ul li img {
+  border: 1px solid #f1d01d;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 0.5rem;
+}
+.enter-battle-container ul li img.code {
+  max-width: 600px;
+}
+.videoCreationForm input {
+  border: 0;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #ffffff;
+  font-size: 1.15rem;
+  padding: 1em 0.75em;
+  border: 1px solid rgba(85, 85, 92, 0.4);
+  outline: none;
+  resize: vertical;
+}
+.videoCreationForm input:required {
+  box-shadow: none;
+}
+.videoCreationForm input:invalid {
+  box-shadow: 0;
+}
+.enter-battle-container .black {
+  color: #000000;
+  font-weight: 600;
 }

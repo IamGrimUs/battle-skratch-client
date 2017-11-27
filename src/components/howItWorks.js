@@ -4,43 +4,45 @@ import './howItWorks.css';
 export default class HowItWorks extends React.Component {
   render() {
     return (
-      <section>
-        <h1 className="page-title">How it works</h1>
+      <section className="how-it-works">
+        <h2>How it works</h2>
         <section className="instruction-container">
           <p>
-            Battle Skratch is an app for turntablists of all skill levels. The
-            aim is to promote the art of turntablism and the community of djs
-            through monthly informal battles. Each month a new beat will be
-            paired to randomly generated instructions for qualifications. Battle
-            orders are maintained on the home page and will update on the first
-            of the month.
+            Battle durations are set for 30 days. New battle orders are assigned
+            as soon as the last battle has expired.
           </p>
-          <p>when your ready put on your big boy pants and enter the arena.</p>
-        </section>
-        <section className="content-block--100">
-          <section className="instruction-container">
-            <h2 className="battle-orders-title">rules of engagment</h2>
-            <ul>
-              <li>
-                <span>step zero:</span> don't be a dick
-              </li>
-              <li>
-                <span>step one:</span> create an account
-              </li>
-              <li>
-                <span>step two:</span> read the battle report
-              </li>
-              <li>
-                <span>step three:</span> download the contest beat
-              </li>
-              <li>
-                <span>step four:</span> record a video &amp; upload to youtube
-              </li>
-              <li>
-                <span>step: five:</span> submit the video for battle entry
-              </li>
-            </ul>
-          </section>
+          <p>
+            Battle orders can be found in the site menu third from the top or
+            fourth from the bottom depending on how you like to count. The
+            battle order page contains all the neccessary information you'll
+            need to create your video for submission.
+          </p>
+          <p className="black">
+            Battle orders are broken into three key pieces of information.
+          </p>
+          <ul>
+            <li>
+              <span className="black">video length:</span> Videos should not
+              exceed the defined duration
+            </li>
+            <li>
+              <span className="black">battle constraints:</span> this rule
+              defines what technique are available to use in the video
+              submissions
+            </li>
+            <li>
+              <span className="black">offical beat:</span> all contestants must
+              use the approved beat.
+            </li>
+          </ul>
+          <p>
+            Once the battle orders have been reviewed and the offical beat
+            acquired. The challenge is laid. It's up to you to create a video
+            submission for the current battle. When your ready upload the video
+            to your youtube account. Then visit the enter battle link and submit
+            the embed video code from youtube. Detailed insructions can be found
+            at enter the battle from the site menu.
+          </p>
         </section>
       </section>
     );
