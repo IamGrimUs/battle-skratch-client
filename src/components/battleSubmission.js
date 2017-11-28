@@ -28,6 +28,7 @@ export class BattleSubmission extends React.Component {
   }
 
   componentDidMount() {
+    console.log('hello');
     this.props.fetchContenders();
     this.setState({
       videoCount: this.props.videos ? this.props.videos.length : 0
@@ -110,6 +111,7 @@ export class BattleSubmission extends React.Component {
     const dj = this.props.contenders.filter(
       dj => dj.id === currentVideo.userId
     );
+    console.log(dj);
     const djName = dj[0].name;
     return this.state.videoCount > 0 ? (
       <section>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function BattleSubmissionLink(props) {
+  console.log('battle submission link');
+  console.log(props.battleId, props.videoId);
   return (
     <div className="contest-entry-button-block">
       <button>

@@ -45,7 +45,6 @@ export class EnterBattle extends React.Component {
       <section className="enter-battle">
         <h2>enter the battle</h2>
         <section className="enter-battle-container">
-          <p class="black">Submit a video for the current battle</p>
           <ul>
             <li>
               <span className="black">Step one:</span> Upload the video to your
@@ -55,13 +54,19 @@ export class EnterBattle extends React.Component {
               <span className="black">Step two:</span> Click the share link just
               below the video
               <br />
-              <img src="../img/youtube_share_button_300x145.png" />
+              <img
+                src="../img/youtube_share_button_300x145.png"
+                alt="demo of share link"
+              />
             </li>
             <li>
               <span className="black">Step three:</span> Click the embed link in
               the bottom right corner
               <br />
-              <img src="../img/youtube_embed_button_300x149.png" />
+              <img
+                src="../img/youtube_embed_button_300x149.png"
+                alt="demo of embed link"
+              />
             </li>
             <li>
               <span className="black">Step four:</span> Copy the embed video
@@ -70,13 +75,14 @@ export class EnterBattle extends React.Component {
               <br />
               <img
                 src="../img/youtube_embed_code_600x230.png"
+                alt="demo of embed code"
                 className="code"
               />
             </li>
             <li>
-              <span className="black">Step five:</span> Enter the title of the
-              video in the first input field &amp; paste the embed code from
-              youtube in the second.
+              <span className="black">Step five:</span> Paste the embed code
+              from youtube into the first input field below. Then enter a title
+              of your video in the second.
             </li>
           </ul>
           <WrappedCommentForm onSubmit={this.onSubmit} />
@@ -91,17 +97,17 @@ const VideoCreationForm = props => {
   return (
     <form className="videoCreationForm" onSubmit={handleSubmit}>
       <Field
-        name="videoTitle"
-        type="text"
-        component="input"
-        placeholder="video title"
-        required
-      />
-      <Field
         name="videoCreation"
         type="text"
         component="input"
-        placeholder="paste the youtube embed code here"
+        placeholder="paste youtube embed code here"
+        required
+      />
+      <Field
+        name="videoTitle"
+        type="text"
+        component="input"
+        placeholder="goin on give it a title"
         required
       />
       <input type="submit" disabled={pristine || submitting} hidden />

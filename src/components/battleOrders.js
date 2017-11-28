@@ -12,11 +12,11 @@ export class BattleOrders extends React.Component {
   }
 
   render() {
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
+    // const options = {
+    //   year: 'numeric',
+    //   month: 'long',
+    //   day: 'numeric'
+    // };
     const currentBattle = this.props.currentBattle;
     const description = this.props.currentBattle.battleTypeId.description;
     console.log(this.props.currentBattle);

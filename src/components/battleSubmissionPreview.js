@@ -6,6 +6,7 @@ import BattleSubmissionImgLink from './battleSubmissionImgLink';
 
 export class BattleSubmissionPreview extends React.Component {
   render() {
+    console.log('battle submission preview');
     const dj = this.props.contenders.filter(dj => dj.id === this.props.userId);
     const djName = dj[0].name;
     return (
