@@ -5,6 +5,8 @@ import { fetchChampions } from '../actions/contenderAction';
 import BattleChampionCard from './battleChampionCard';
 import { BASE_URL } from '../constant';
 
+import './battleChampion.css';
+
 export class BattleChampion extends React.Component {
   championCardSetup(champion, index, isGrandChampion) {
     return (
@@ -18,7 +20,10 @@ export class BattleChampion extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchChampions();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchChampions(this.props.contender);
   }
 
   render() {
@@ -30,7 +35,6 @@ export class BattleChampion extends React.Component {
 
     return (
       <section>
-        <h2 className="current-champion-title">battle champions</h2>
         <section className="content-block-leader-board">{cards}</section>
       </section>
     );
@@ -38,13 +42,18 @@ export class BattleChampion extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { champions: state.contenderReducer.champions };
+  return {
+    champions: state.contenderReducer.champions,
+    contender: state.contenderReducer.contender
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchChampions: () => {
-      const headers = new Headers();
+    fetchChampions: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/user/champions`, {
         method: 'GET',
         mode: 'cors',

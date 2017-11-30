@@ -1,9 +1,8 @@
 import React from 'react';
-
+import './userProfileCard.css';
 export default function UserProfileCard(props) {
   return (
     <div className="user-profile">
-      <figure className="user-profile-pic" />
       <div className="user-profile-info">
         <h3>{props.name}</h3>
         <div className="battle-status">

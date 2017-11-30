@@ -28,6 +28,7 @@ export const contenderReducer = (state = initialState, action) => {
     });
   }
   if (action.type === FETCH_CURRENT_CONTENDER) {
+    console.log(action);
     return Object.assign({}, state, {
       contender: action.contender
     });

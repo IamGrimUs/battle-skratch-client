@@ -12,7 +12,10 @@ export class Contenders extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchContenders();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchContenders(this.props.contender);
   }
 
   render() {
@@ -22,10 +25,11 @@ export class Contenders extends React.Component {
     // contenders && cards.push(this.contenderCardSetup(contenders, 1));
     // console.log(cards);
     return (
-      <section>
-        <BattleChampion />
-        <h1 className="page-title">Contenders</h1>
-        <div className="background-color-container">
+      <section className="contenders">
+        <h2>battle champions</h2>
+        <div className="contenders-container">
+          <BattleChampion />
+          <h2>Contenders</h2>
           <section className="all-users-container">{contenders}</section>
         </div>
       </section>
@@ -34,13 +38,18 @@ export class Contenders extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { contenders: state.contenderReducer.contenders };
+  return {
+    contenders: state.contenderReducer.contenders,
+    contender: state.contenderReducer.contender
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchContenders: () => {
-      const headers = new Headers();
+    fetchContenders: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request('http://localhost:8080/api/user/', {
         method: 'GET',
         mode: 'cors',

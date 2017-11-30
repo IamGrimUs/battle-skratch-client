@@ -8,8 +8,11 @@ import BattleContainer from './battleContainer';
 
 export class BattleListing extends React.Component {
   componentWillMount() {
-    this.props.fetchBattles();
-    this.props.fetchContenders();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchBattles(this.props.contender);
+    this.props.fetchContenders(this.props.contender);
   }
 
   render() {
@@ -32,14 +35,17 @@ export class BattleListing extends React.Component {
 const mapStateToProps = state => {
   return {
     battles: state.battleReducer.battles,
-    contenders: state.contenderReducer.contenders
+    contenders: state.contenderReducer.contenders,
+    contender: state.contenderReducer.contender
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBattles: () => {
-      const headers = new Headers();
+    fetchBattles: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/battle`, {
         method: 'GET',
         mode: 'cors',
@@ -52,8 +58,10 @@ const mapDispatchToProps = dispatch => {
         })
         .catch(err => console.log(err));
     },
-    fetchContenders: () => {
-      const headers = new Headers();
+    fetchContenders: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/user/`, {
         method: 'GET',
         mode: 'cors',

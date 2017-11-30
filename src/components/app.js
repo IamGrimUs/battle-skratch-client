@@ -22,9 +22,13 @@ export default class App extends React.Component {
           <Route exact path="/howItWorks" component={HowItWorks} />
           <Route exact path="/battleOrders" component={BattleOrders} />
           <Route exact path="/enterBattle" component={EnterBattle} />
-          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/battleList" component={HomePage} />
           <Route exact path="/contenders" component={Contenders} />
-          <Route exact path="/BattleSubmission/" component={BattleSubmission} />
+          <Route
+            exact
+            path="/BattleSubmission/:battleId/:videoId/"
+            component={BattleSubmission}
+          />
           <SiteNavOverlay />
         </section>
       </Router>

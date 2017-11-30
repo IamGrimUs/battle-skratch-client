@@ -1,11 +1,12 @@
 import React from 'react';
+import './battleListingHeadline.css';
 
 export default function BattleListingHeadline(props) {
   const today = new Date(); // todo: match current battle marker to the correct battle
   // console.log(props);
   return (
     <section className="contest-headline-block">
-      <h2 className="page-title">
+      <h2>
         :{props.battleType.duration} seconds<br />
         <span> {props.battleType.description}</span>
       </h2>

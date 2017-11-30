@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Cookies from 'js-cookies';
+import Cookie from 'js-cookie';
 import { reduxForm, Field, reset } from 'redux-form';
 
 import { fetchCurrentContender } from '../actions/contenderAction';
@@ -10,6 +10,7 @@ import './login.css';
 
 export class Login extends React.Component {
   render() {
+    let errorMessage;
     return (
       <section className="login-container">
         <h2>login fella</h2>
@@ -18,7 +19,7 @@ export class Login extends React.Component {
             This site is currently in testing. Logins are invite only during the
             duration. For demo viewing please sign in as
           </p>
-          <p class="black">
+          <p className="black">
             user name: you<br />
             password: 123
           </p>
@@ -29,6 +30,9 @@ export class Login extends React.Component {
               </div>
             </a>
           </div> */}
+          <p className="hidden errorMessage">{`${
+            errorMessage
+          } Please check your entries and try again.`}</p>
           <WrappedLoginForm onSubmit={this.props.onSubmit} />
         </section>
       </section>
@@ -67,19 +71,40 @@ const captureUserLogin = (userName, password) => {
     body: data,
     headers: headers
   });
-  fetch(req)
+  return fetch(req)
     .then(response => {
-      console.log(response);
-      console.log(response.authToken);
-      if (response.ok) {
-        Cookies.set('jwt', response.authToken);
-        Cookies.set('loggedInUserId', response.userId);
-        Cookies.set('permission', response.permission);
-        console.log('all good things...?');
-      }
+      return response.json();
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      let errorMessage = err.responseJSON.message;
+      showLoginErrorMessage(errorMessage);
+    })
+    .then(response => {
+      // console.log(response);
+      // console.log(response.authToken);
+      // console.log('all good things...?');
+      console.warn(response);
+      Cookie.set('jwt', response.authToken);
+      Cookie.set('loggedInUserId', response.userId);
+      Cookie.set('permission', response.permission);
+      return response;
+    })
+    .catch(err => {
+      console.log(err);
+      return err;
+    });
 };
+
+function showLoginErrorMessage(errorMessage) {
+  document.getElementsByClassName(errorMessage).classList.remove('hidden');
+  console.log('we made it this far');
+  //   .appendChild(`
+  //    <p>${errorMessage} Please check your entries and try again.</p>
+  //  `);
+  setTimeout(() => {
+    document.getElementsByClassName(errorMessage).classList.add('hidden');
+  }, 5000);
+}
 
 const afterSubmit = value => reset('VideoCreationForm');
 const WrappedLoginForm = reduxForm({
@@ -92,8 +117,10 @@ const mapDispatchToProps = dispatch => {
     onSubmit: value => {
       const userName = value.userName;
       const password = value.password;
-      dispatch(fetchCurrentContender(userName, password));
-      captureUserLogin(userName, password);
+
+      captureUserLogin(userName, password).then(data => {
+        dispatch(fetchCurrentContender(data));
+      });
       value.userName = '';
       value.password = '';
     }

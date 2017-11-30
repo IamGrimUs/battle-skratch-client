@@ -26,7 +26,7 @@ export default function SiteNavOverlay() {
           </Link>
         </li>
         <li>
-          <Link to="/home">
+          <Link to="/battleList">
             <span className="navOverlaySpan">battle list</span>
           </Link>
         </li>

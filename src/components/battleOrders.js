@@ -8,7 +8,10 @@ import './battleOrders.css';
 
 export class BattleOrders extends React.Component {
   componentWillMount() {
-    this.props.fetchCurrentBattle();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchCurrentBattle(this.props.contender);
   }
 
   render() {
@@ -76,13 +79,18 @@ export class BattleOrders extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { currentBattle: state.battleReducer.currentBattle };
+  return {
+    currentBattle: state.battleReducer.currentBattle,
+    contender: state.contenderReducer.contender
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCurrentBattle: () => {
-      const headers = new Headers();
+    fetchCurrentBattle: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/battle/currentBattle`, {
         method: 'GET',
         mode: 'cors',

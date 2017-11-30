@@ -1,0 +1,24 @@
+/* .current-champion-title {
+  font-size: 3em;
+  line-height: 0.75;
+  text-align: center;
+  margin: 0.5em 0 0.5em 0;
+  color: #3b393f;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+} */
+/* @media screen and (min-width: 768px) {
+  .current-champion-title {
+    font-size: 3em;
+  }
+} */
+.content-block-leader-board {
+  width: 90%;
+  max-width: 1120px;
+  margin: 4em auto;
+}
+@media screen and (min-width: 768px) {
+  .content-block-leader-board {
+    display: flex;
+    justify-content: space-between;
+  }
+}

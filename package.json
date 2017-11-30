@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "js-cookies": "^1.0.4",
+    "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "passport-http": "^0.3.0",

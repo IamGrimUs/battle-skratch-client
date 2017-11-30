@@ -28,8 +28,10 @@ export class BattleSubmission extends React.Component {
   }
 
   componentDidMount() {
-    console.log('hello');
-    this.props.fetchContenders();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchContenders(this.props.contender);
     this.setState({
       videoCount: this.props.videos ? this.props.videos.length : 0
     });
@@ -69,8 +71,10 @@ export class BattleSubmission extends React.Component {
     this.updateVoteUpInDb(currentVideoId);
   }
 
-  updateVoteUpInDb(currentVideoId) {
-    const headers = new Headers();
+  updateVoteUpInDb(currentVideoId, contender) {
+    const headers = new Headers({
+      Authorization: `Bearer ${contender.authToken}`
+    });
     const req = new Request(
       `${BASE_URL}api/video/voteCountUp/${currentVideoId}`,
       {
@@ -82,8 +86,10 @@ export class BattleSubmission extends React.Component {
     fetch(req).catch(err => console.log(err));
   }
 
-  updateVoteDownInDb(currentVideoId) {
-    const headers = new Headers();
+  updateVoteDownInDb(currentVideoId, contender) {
+    const headers = new Headers({
+      Authorization: `Bearer ${contender.authToken}`
+    });
     const req = new Request(
       `${BASE_URL}api/video/voteCountDown/${currentVideoId}`,
       {
@@ -114,8 +120,8 @@ export class BattleSubmission extends React.Component {
     console.log(dj);
     const djName = dj[0].name;
     return this.state.videoCount > 0 ? (
-      <section>
-        <h1 className="page-title">battle submission</h1>
+      <section className="battle-submission">
+        <h2>battle submission</h2>
         <div className="content-frame">
           <BattleSubmissionCard
             onLoadNext={this.loadNext}
@@ -153,14 +159,17 @@ const mapStateToProps = (state, ownProps) => {
     videoId,
     currentVideoIndex,
     currentVideo: videos[currentVideoIndex],
-    contenders: state.contenderReducer.contenders
+    contenders: state.contenderReducer.contenders,
+    contender: state.contenderReducer.contender
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchContenders: () => {
-      const headers = new Headers();
+    fetchContenders: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/user/`, {
         method: 'GET',
         mode: 'cors',

@@ -1,0 +1,50 @@
+.user-profile {
+  background-color: #ffffff;
+  border: 2px solid #e7a120;
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+.user-profile-info {
+  padding: 0.75em 0.5em 0.5em;
+  color: #3b393f;
+  font-family: 'Opens Sans', sans-serif;
+  font-weight: 600;
+}
+.user-profile-info > h3,
+.user-profile-info p {
+  font-size: 1.25rem;
+  margin-top: 0.75em;
+  margin-bottom: 0;
+}
+.user-profile-info h3 {
+  font-size: 1.75rem;
+  font-family: 'Permanent Marker', cursive;
+}
+.battle-status {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-column-gap: 1.25em;
+  grid-row-gap: 0.5em;
+  padding: 0.5em 0.5em 1em;
+}
+.battle-status p {
+  border-bottom: 2px solid #e7a120;
+  font-size: 1.25rem;
+  padding-top: 0.75em;
+  padding-bottom: 0.5em;
+}
+.battle-status p:nth-child(even) {
+  text-align: right;
+}
+.battle-status p:nth-child(odd) {
+  text-align: left;
+}
+@media screen and (min-width: 768px) {
+  .battle-status p {
+    font-size: 1.15rem;
+  }
+}

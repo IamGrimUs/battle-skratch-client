@@ -1,0 +1,61 @@
+.leader-board {
+  text-align: center;
+  background-color: #eaf7fc;
+  border: 2px solid #3b393f;
+  border-radius: 4px;
+  padding: 2em 0.75em 0.75em;
+  /* border: 2px solid #e0e0e1; */
+  margin: 0 auto;
+  margin-bottom: 2em;
+  max-width: 480px;
+}
+.grandChampion {
+  background-color: #f1d01d;
+}
+
+h4.leader-board-user h3.leader-board-user {
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .leader-board {
+    width: 45%;
+  }
+}
+.leader-board p {
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+  margin: 1.5em 0;
+  color: #000000;
+  font-size: 32px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .leader-board p {
+    margin: 0.5em 0;
+  }
+}
+.leader-board img {
+  max-width: 80px;
+  margin: 0 auto;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.leader-board h3 {
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+  font-size: 2em;
+  margin-top: 0.5em;
+  line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .leader-board h3 {
+    margin-top: 0.25em;
+  }
+}
+.leader-board h4,
+.leader-board grandchampion h4 {
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
+  font-size: 2.25em;
+}

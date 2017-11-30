@@ -63,9 +63,12 @@ const WrappedCommentForm = reduxForm({
   onSubmitSuccess: afterSubmit
 })(CommentForm);
 
-const pushVideoComment = (videoId, author, comment) => {
+const pushVideoComment = (videoId, author, comment, contender) => {
   const data = JSON.stringify({ author, comment });
-  const headers = new Headers({ 'Content-Type': 'application/json' });
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${contender.authToken}`
+  });
   const req = new Request(`${BASE_URL}api/video/${videoId}`, {
     method: 'PUT',
     mode: 'cors',
@@ -77,8 +80,10 @@ const pushVideoComment = (videoId, author, comment) => {
 };
 
 const mapStateToProps = state => {
+  console.log(state.contenderReducer.contender);
   return {
-    videos: state.videoReducer.videos
+    videos: state.videoReducer.videos,
+    contender: state.contenderReducer.contender
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -6,14 +6,17 @@ import { BASE_URL } from '../constant';
 
 import BattleListingHeadline from './battleListingHeadline';
 import BattleSubmissionPreview from './battleSubmissionPreview';
+import './battleContainer.css';
 
 export class BattleContainer extends React.Component {
   componentWillMount() {
-    this.props.fetchVideos();
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchVideos(this.props.contender);
   }
 
   render() {
-    // console.log(this.props.battleSubmissions);
     const battle = this.props.battle;
     const header = (
       <BattleListingHeadline
@@ -49,9 +52,11 @@ export class BattleContainer extends React.Component {
         );
       });
     return (
-      <section className="content-block">
-        {header}
-        <section className="contest-entry-block">{battleSubmissions}</section>
+      <section className="battle-container">
+        <div className="inner-container">
+          {header}
+          <section className="contest-entry-block">{battleSubmissions}</section>
+        </div>
       </section>
     );
   }
@@ -60,14 +65,17 @@ export class BattleContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     battleSubmissions: state.videoReducer.videos,
-    battle: ownProps.battle
+    battle: ownProps.battle,
+    contender: state.contenderReducer.contender
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchVideos: () => {
-      const headers = new Headers();
+    fetchVideos: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
       const req = new Request(`${BASE_URL}api/video/`, {
         method: 'GET',
         mode: 'cors',

@@ -13,13 +13,16 @@ export class EnterBattle extends React.Component {
   }
 
   createVideo(videoLink, videoTitle) {
-    // console.log('this.props.currentBattleId ->', this.props.currentBattleId);
+    let contender = this.props.contender;
     const data = JSON.stringify({
       videoLink,
       videoTitle,
-      userId: '59ffae3a734d1d63bdd2ab44'
+      userId: this.props.contender.userId
     });
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${contender.authToken}`
+    });
     const req = new Request(
       `${BASE_URL}api/video/${this.props.currentBattleId}`,
       {
@@ -123,7 +126,8 @@ const WrappedCommentForm = reduxForm({
 
 const mapStateToProps = state => {
   return {
-    currentBattleId: state.battleReducer.currentBattle.id
+    currentBattleId: state.battleReducer.currentBattle.id,
+    contender: state.contenderReducer.contender
   };
 };
 export default connect(mapStateToProps)(EnterBattle);

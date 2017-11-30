@@ -43,32 +43,10 @@
 .login-form input:invalid {
   box-shadow: 0;
 }
-/* .google-login {
-  width: 100%;
-  max-width: 350px;
-  height: 200px;
-  max-height: 500px;
-  padding: 1em 1.25em;
-  margin: 0 auto;
-  border: 2px solid #e7d697;
-  border-radius: 8px;
+.login-form-container .hidden {
+  display: none;
 }
-.google-login-button-container {
-  margin: 0.5em 0.25em;
-  background-color: #3b393f;
-  padding: 1em 1.25em;
-  text-align: center;
-  border-radius: 4px;
-  transition: all 0.5s;
+
+.login-form-container .errorMessage {
+  color: #c96302;
 }
-.google-login-button-container:hover {
-  margin: 0.5em 0.25em;
-  background-color: #000000;
-  transition: all 0.5s;
-}
-.google-login-button-container span {
-  font-family: 'Open Sans', sans-serif;
-  color: #e7d697;
-  font-weight: bold;
-  font-size: 1.5em;
-} */
