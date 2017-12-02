@@ -2,7 +2,9 @@ import {
   FETCH_CONTENDERS,
   FETCH_CONTENDER_BY_ID,
   FETCH_CHAMPIONS,
-  FETCH_CURRENT_CONTENDER
+  FETCH_CURRENT_CONTENDER,
+  LOGIN_ERROR_MESSAGE,
+  LOGOUT_CURRENT_USER
 } from '../actions/contenderAction';
 
 const initialState = {
@@ -28,9 +30,19 @@ export const contenderReducer = (state = initialState, action) => {
     });
   }
   if (action.type === FETCH_CURRENT_CONTENDER) {
-    console.log(action);
     return Object.assign({}, state, {
-      contender: action.contender
+      contender: action.contender,
+      errorMessage: undefined
+    });
+  }
+  if (action.type === LOGIN_ERROR_MESSAGE) {
+    return Object.assign({}, state, {
+      errorMessage: action.errorMessage
+    });
+  }
+  if (action.type === LOGOUT_CURRENT_USER) {
+    return Object.assign({}, state, {
+      contender: {}
     });
   }
   return state;

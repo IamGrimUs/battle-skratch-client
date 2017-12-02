@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, reset } from 'redux-form';
-
+import { Redirect } from 'react-router-dom';
+import { fetchCurrentBattle } from '../actions/battleAction';
 import { BASE_URL } from '../constant';
 import './enterBattle.css';
 
@@ -12,12 +13,23 @@ export class EnterBattle extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  createVideo(videoLink, videoTitle) {
+  componentWillMount() {
+    console.log('willmount', this.props.contender);
+    if (!this.props.contender) {
+      return;
+    }
+    this.props.fetchCurrentBattle(this.props.contender);
+  }
+
+  createVideo(videoLink, title) {
     let contender = this.props.contender;
     const data = JSON.stringify({
       videoLink,
-      videoTitle,
-      userId: this.props.contender.userId
+      title,
+      userId: this.props.contender.userId,
+      voteCountUp: 0,
+      voteCountDown: 0,
+      comments: []
     });
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -41,6 +53,7 @@ export class EnterBattle extends React.Component {
     this.createVideo(videoLink, videoTitle);
     value.videoTitle = '';
     value.videoCreation = '';
+    return <Redirect to={{ pathname: '/home' }} />;
   }
 
   render() {
@@ -130,4 +143,26 @@ const mapStateToProps = state => {
     contender: state.contenderReducer.contender
   };
 };
-export default connect(mapStateToProps)(EnterBattle);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCurrentBattle: contender => {
+      const headers = new Headers({
+        Authorization: `Bearer ${contender.authToken}`
+      });
+      const req = new Request(`${BASE_URL}api/battle/currentBattle`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      });
+      fetch(req)
+        .then(res => res.json())
+        .then(data => {
+          dispatch(fetchCurrentBattle(data.currentBattle));
+        })
+        .catch(err => console.log(err));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EnterBattle);

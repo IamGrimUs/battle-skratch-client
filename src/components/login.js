@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Cookie from 'js-cookie';
 import { reduxForm, Field, reset } from 'redux-form';
-
-import { fetchCurrentContender } from '../actions/contenderAction';
+import {
+  fetchCurrentContender,
+  loginErrorMessage
+} from '../actions/contenderAction';
 import { BASE_URL } from '../constant';
 
 import './login.css';
 
 export class Login extends React.Component {
   render() {
-    let errorMessage;
+    if (this.props.contender.userId) {
+      return <Redirect to={{ pathname: '/howItWorks' }} />;
+    }
     return (
       <section className="login-container">
         <h2>login fella</h2>
@@ -23,16 +28,11 @@ export class Login extends React.Component {
             user name: you<br />
             password: 123
           </p>
-          {/* <div className="google-login">
-            <a href="{BASE_URL}/auth/google">
-              <div className="google-login-button-container">
-                <span>Sign In with Google</span>
-              </div>
-            </a>
-          </div> */}
-          <p className="hidden errorMessage">{`${
-            errorMessage
-          } Please check your entries and try again.`}</p>
+          {this.props.errorMessage && (
+            <p className="errorMessage">{`${
+              this.props.errorMessage
+            } Please check your entries and try again.`}</p>
+          )}
           <WrappedLoginForm onSubmit={this.props.onSubmit} />
         </section>
       </section>
@@ -71,40 +71,13 @@ const captureUserLogin = (userName, password) => {
     body: data,
     headers: headers
   });
-  return fetch(req)
-    .then(response => {
-      return response.json();
-    })
-    .catch(err => {
-      let errorMessage = err.responseJSON.message;
-      showLoginErrorMessage(errorMessage);
-    })
-    .then(response => {
-      // console.log(response);
-      // console.log(response.authToken);
-      // console.log('all good things...?');
-      console.warn(response);
-      Cookie.set('jwt', response.authToken);
-      Cookie.set('loggedInUserId', response.userId);
-      Cookie.set('permission', response.permission);
-      return response;
-    })
-    .catch(err => {
-      console.log(err);
-      return err;
-    });
+  return fetch(req).then(response => {
+    if (response.status !== 200) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  });
 };
-
-function showLoginErrorMessage(errorMessage) {
-  document.getElementsByClassName(errorMessage).classList.remove('hidden');
-  console.log('we made it this far');
-  //   .appendChild(`
-  //    <p>${errorMessage} Please check your entries and try again.</p>
-  //  `);
-  setTimeout(() => {
-    document.getElementsByClassName(errorMessage).classList.add('hidden');
-  }, 5000);
-}
 
 const afterSubmit = value => reset('VideoCreationForm');
 const WrappedLoginForm = reduxForm({
@@ -112,19 +85,43 @@ const WrappedLoginForm = reduxForm({
   onSubmitSuccess: afterSubmit
 })(LoginForm);
 
+const mapStateToProps = state => {
+  return {
+    errorMessage: state.contenderReducer.errorMessage,
+    contender: state.contenderReducer.contender
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: value => {
       const userName = value.userName;
       const password = value.password;
 
-      captureUserLogin(userName, password).then(data => {
-        dispatch(fetchCurrentContender(data));
-      });
+      captureUserLogin(userName, password)
+        .then(data => {
+          dispatch(fetchCurrentContender(data));
+          return data;
+        })
+        .catch(err => {
+          console.log(JSON.stringify(err));
+          let errorMessage = err.message;
+          dispatch(loginErrorMessage(errorMessage));
+          console.log(errorMessage);
+          return Promise.reject();
+        })
+        .then(response => {
+          console.warn(response);
+          Cookie.set('jwt', response.authToken);
+          Cookie.set('loggedInUserId', response.userId);
+          Cookie.set('permission', response.permission);
+          return response;
+        })
+        .catch(err => console.log(err));
       value.userName = '';
       value.password = '';
     }
   };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

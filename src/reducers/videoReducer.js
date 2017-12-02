@@ -21,12 +21,7 @@ const handleFetchVideos = (state, action) => {
 };
 
 const handleAddComment = (state, action) => {
-  console.log('state id: ', action.videoId);
   const videoId = action.videoId;
-  console.log('author:', action.author);
-  console.log('comment:', action.comment);
-  console.log('state => ', state);
-
   const index = state.videos.findIndex(submission => {
     return submission.id === videoId;
   });

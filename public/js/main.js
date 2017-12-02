@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
     $('.shadow-layer').addClass('is-visible');
   });
 
-  $('li').on('click', function() {
+  $('ul').on('click', function() {
     $('.main-content').removeClass('move-out');
     $('#main-nav').removeClass('is-visible');
   });

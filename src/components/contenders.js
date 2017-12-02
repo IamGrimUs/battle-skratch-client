@@ -20,10 +20,6 @@ export class Contenders extends React.Component {
 
   render() {
     const contenders = this.props.contenders.map(this.contenderCardSetup);
-    // const contenders = this.props.contenders;
-    // const cards = [];
-    // contenders && cards.push(this.contenderCardSetup(contenders, 1));
-    // console.log(cards);
     return (
       <section className="contenders">
         <h2>battle champions</h2>

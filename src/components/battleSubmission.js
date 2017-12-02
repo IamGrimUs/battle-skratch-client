@@ -68,7 +68,7 @@ export class BattleSubmission extends React.Component {
       voteCountUp: ++this.props.videos[this.state.currentVideoPosition]
         .voteCountUp
     });
-    this.updateVoteUpInDb(currentVideoId);
+    this.updateVoteUpInDb(currentVideoId, this.props.contender);
   }
 
   updateVoteUpInDb(currentVideoId, contender) {
@@ -109,7 +109,7 @@ export class BattleSubmission extends React.Component {
       voteCountDown: --this.props.videos[this.state.currentVideoPosition]
         .voteCountDown
     });
-    this.updateVoteDownInDb(currentVideoId);
+    this.updateVoteDownInDb(currentVideoId, this.props.contender);
   }
 
   render() {
@@ -117,7 +117,6 @@ export class BattleSubmission extends React.Component {
     const dj = this.props.contenders.filter(
       dj => dj.id === currentVideo.userId
     );
-    console.log(dj);
     const djName = dj[0].name;
     return this.state.videoCount > 0 ? (
       <section className="battle-submission">
