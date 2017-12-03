@@ -123,7 +123,7 @@ const VideoCreationForm = props => {
         name="videoTitle"
         type="text"
         component="input"
-        placeholder="goin on give it a title"
+        placeholder="go on give it a title"
         required
       />
       <input type="submit" disabled={pristine || submitting} hidden />

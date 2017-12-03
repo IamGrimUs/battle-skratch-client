@@ -21,10 +21,6 @@ body {
   font-size: 100%;
   font-family: 'Open Sans', sans-serif;
   background-color: #fafafa;
-  /* background-image: url(../img/FreeVector-Crazy-DJ.jpg);
-  background-position: bottom right;
-  background-size: 20%;
-  background-repeat: no-repeat; */
 }
 a {
   color: #ffffff;
@@ -93,9 +89,6 @@ h1.page-title {
 .content-block--100 .intro-text h2 {
   color: #fafafa;
 }
-/* .intro-text p {
-  font-size: 1.25em;
-} */
 .intro-text ul li {
   font-size: 1.25rem;
   padding-top: 0.5em;
@@ -111,21 +104,10 @@ h1.page-title {
   margin: 4em 0 1em 0;
   padding-bottom: 0.25em;
   border-bottom: 1px solid rgba(85, 85, 92, 0.4);
-  /* box-shadow: 0 8px 6px -6px rgba(85, 85, 92, 0.2); */
 }
 .content-block--100 .intro-text {
   border-bottom: none;
-  /* box-shadow: 0 8px 6px -6px rgba(85, 85, 92, 0.2); */
 }
-/* .contest-headline-block:nth-child(1) {
-  box-shadow: none;
-}
-.contest-headline-block:nth-child(1) p {
-  margin-top: 0.5em;
-}
-.contest-headline-block:nth-child(1) h2 {
-  margin-bottom: 0;
-} */
 @media screen and (min-width: 768px) {
   .contest-headline-block {
     margin-top: 6em;
@@ -225,8 +207,7 @@ h1.page-title {
 .contest-entry {
   background-color: rgba(85, 85, 92, 1);
   padding-bottom: 0.75em;
-  border-left: 2px solid rgba(85, 85, 92, 0.2);
-  border-right: 2px solid rgba(85, 85, 92, 0.2);
+  border: 2px solid rgba(85, 85, 92, 0.2);
   border-radius: 2px;
 }
 .contest-entry-video-frame {

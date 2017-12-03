@@ -3,9 +3,7 @@ import React from 'react';
 import './battleChampionCard.css';
 
 export default function BattleChampionCard(props) {
-  const lastBattleWon = `most recent battle winner: ${
-    props.battleTypeDescription
-  }`;
+  const lastBattleWon = `current battle leader: ${props.battleTypeDescription}`;
   const mostBattlesWon = `most battles won: ${props.battlesWon}`;
   return (
     <section
