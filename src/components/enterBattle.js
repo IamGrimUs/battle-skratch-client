@@ -9,6 +9,9 @@ import './enterBattle.css';
 export class EnterBattle extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      submitted: false
+    };
     this.createVideo = this.createVideo.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -50,13 +53,22 @@ export class EnterBattle extends React.Component {
   onSubmit(value) {
     const videoLink = value.videoCreation;
     const videoTitle = value.videoTitle;
-    this.createVideo(videoLink, videoTitle);
+    this.createVideo(videoLink, videoTitle).then(
+      setTimeout(
+        this.setState({
+          submitted: true
+        }),
+        3000
+      )
+    );
     value.videoTitle = '';
     value.videoCreation = '';
-    return <Redirect to={{ pathname: '/home' }} />;
   }
 
   render() {
+    if (this.state.submitted) {
+      return <Redirect to={{ pathname: '/battleList' }} />;
+    }
     return (
       <section className="enter-battle">
         <h2>enter the battle</h2>

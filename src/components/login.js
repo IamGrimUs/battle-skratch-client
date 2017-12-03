@@ -49,6 +49,7 @@ const LoginForm = props => {
         component="input"
         placeholder="user name"
         required
+        autoFocus
       />
       <Field
         name="password"

@@ -17,7 +17,8 @@ export class BattleSubmission extends React.Component {
       currentVideoPosition: props.currentVideoIndex,
       videoCount: props.videos.length,
       voteCountUp: currentVideo.voteCountUp,
-      voteCountDown: currentVideo.voteCountDown
+      voteCountDown: currentVideo.voteCountDown,
+      videos: props.videos
     };
     this.loadNext = this.loadNext.bind(this);
     this.loadPrevious = this.loadPrevious.bind(this);
@@ -33,7 +34,8 @@ export class BattleSubmission extends React.Component {
     }
     this.props.fetchContenders(this.props.contender);
     this.setState({
-      videoCount: this.props.videos ? this.props.videos.length : 0
+      videoCount: this.props.videos ? this.props.videos.length : 0,
+      videos: this.props.videos
     });
   }
 
@@ -52,7 +54,7 @@ export class BattleSubmission extends React.Component {
     let newPosition =
       this.state.currentVideoPosition === 0
         ? this.state.videoCount - 1
-        : --this.state.currentVideoPosition && --this.state.currentVideoIndex;
+        : --this.state.currentVideoPosition;
     newPosition = newPosition < 0 ? 0 : newPosition;
     this.setState({
       ...this.state,
@@ -114,9 +116,12 @@ export class BattleSubmission extends React.Component {
 
   render() {
     const currentVideo = this.props.videos[this.state.currentVideoPosition];
+    console.log('currentVideo', currentVideo);
+    console.log('contender', this.props.contenders);
     const dj = this.props.contenders.filter(
       dj => dj.id === currentVideo.userId
     );
+    console.log('dj', dj);
     const djName = dj[0].name;
     return this.state.videoCount > 0 ? (
       <section className="battle-submission">
