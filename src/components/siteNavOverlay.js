@@ -5,11 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export class SiteNavOverlay extends React.Component {
-  constructor(props) {
-    super(props);
-    this.logOut = this.logOut.bind(this);
-  }
-
   logOut() {
     Cookies.remove('jwt');
     this.props.logoutCurrentUser();
