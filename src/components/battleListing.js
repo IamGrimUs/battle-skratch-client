@@ -21,13 +21,15 @@ export class BattleListing extends React.Component {
       battlesList[i].battleTypes = battleTypes[i];
     }
 
-    const battleListing = battlesList.map((battle, index) => (
-      <BattleContainer
-        key={index}
-        battleIndex={battlesList.length - index}
-        battle={battle}
-      />
-    ));
+    const battleListing = battlesList
+      .reverse()
+      .map((battle, index) => (
+        <BattleContainer
+          key={index}
+          battleIndex={battlesList.length - index}
+          battle={battle}
+        />
+      ));
     return <section className="content-block">{battleListing}</section>;
   }
 }

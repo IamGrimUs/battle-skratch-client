@@ -47,20 +47,21 @@ export class EnterBattle extends React.Component {
         headers: headers
       }
     );
-    fetch(req).catch(err => console.log(err));
+    fetch(req)
+      .catch(err => console.log(err))
+      .then(
+        setTimeout(() => {
+          this.setState({
+            submitted: true
+          });
+        }, 3000)
+      );
   }
 
   onSubmit(value) {
     const videoLink = value.videoCreation;
     const videoTitle = value.videoTitle;
-    this.createVideo(videoLink, videoTitle).then(
-      setTimeout(
-        this.setState({
-          submitted: true
-        }),
-        3000
-      )
-    );
+    this.createVideo(videoLink, videoTitle);
     value.videoTitle = '';
     value.videoCreation = '';
   }
