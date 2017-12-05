@@ -26,7 +26,7 @@ export class Login extends React.Component {
           </p>
           <p className="black">
             user name: you<br />
-            password: 123
+            password: password
           </p>
           {this.props.errorMessage && (
             <p className="errorMessage">{`${

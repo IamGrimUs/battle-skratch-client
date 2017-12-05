@@ -1,6 +1,9 @@
 /* --------------------------------
 Primary style
 -------------------------------- */
+#root {
+  padding-bottom: 8rem;
+}
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

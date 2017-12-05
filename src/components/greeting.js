@@ -26,7 +26,7 @@ export default class HowItWorks extends React.Component {
           <p>
             The Battle Skratch app is currently a proof of concept. Current
             contenders are invite only. However, if you would like to demo the
-            app the you can assume the persona of{' '}
+            app you can assume the persona of{' '}
             <span className="dj-name">DJ You</span>.
           </p>
           <p>When your ready head over to menu button and select&nbsp;login.</p>

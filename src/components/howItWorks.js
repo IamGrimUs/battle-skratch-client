@@ -8,8 +8,10 @@ export default class HowItWorks extends React.Component {
         <h2>How it works</h2>
         <section className="instruction-container">
           <p>
-            Battle durations are set for 30 days. New battle orders are assigned
-            as soon as the last battle has expired.
+            On the 2nd of each month new battle orders are assigned signaling
+            the start of a new competition. Each battle will last for 30 days.
+            New battle orders are assigned as soon as the last battle has
+            expired.
           </p>
           <p>
             Battle orders can be found in the site menu third from the top or
@@ -26,9 +28,9 @@ export default class HowItWorks extends React.Component {
               exceed the defined duration
             </li>
             <li>
-              <span className="black">battle constraints:</span> this rule
-              defines what technique are available to use in the video
-              submissions
+              <span className="black">battle constraints:</span> a list of
+              available cuts to use in your video submission all others are
+              prohibited.
             </li>
             <li>
               <span className="black">offical beat:</span> all contestants must
@@ -38,10 +40,10 @@ export default class HowItWorks extends React.Component {
           <p>
             Once the battle orders have been reviewed and the offical beat
             acquired. The challenge is laid. It's up to you to create a video
-            submission for the current battle. When your ready upload the video
-            to your youtube account. Then visit the enter battle link and submit
-            the embed video code from youtube. Detailed insructions can be found
-            at enter the battle from the site menu.
+            submission for the current battle. After your video has been created
+            upload it to your youtube account for safe keeping. Then visit the
+            enter battle link from the main menu and submit the embed video code
+            from youtube. Detailed insructions provided.
           </p>
         </section>
       </section>
