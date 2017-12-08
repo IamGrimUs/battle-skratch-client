@@ -17,7 +17,6 @@ export class SiteNavOverlay extends React.Component {
 
   render() {
     const contender = this.props.contender;
-    console.log(contender);
     return (
       <nav id="main-nav">
         <ul>
