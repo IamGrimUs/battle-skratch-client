@@ -99,7 +99,6 @@ const mapDispatchToProps = dispatch => {
     onSubmit: value => {
       const userName = value.userName;
       const password = value.password;
-
       captureUserLogin(userName, password)
         .then(data => {
           dispatch(fetchCurrentContender(data));
@@ -113,7 +112,6 @@ const mapDispatchToProps = dispatch => {
           return Promise.reject();
         })
         .then(response => {
-          console.warn(response);
           Cookie.set('jwt', response.authToken);
           Cookie.set('loggedInUserId', response.userId);
           Cookie.set('permission', response.permission);
