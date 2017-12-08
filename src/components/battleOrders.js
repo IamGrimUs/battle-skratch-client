@@ -62,7 +62,7 @@ export class BattleOrders extends React.Component {
                 target="_blank"
                 className="beat-download-link"
               >
-                claim the beat
+                Download Battle Beat
               </a>
             </li>
           </ul>

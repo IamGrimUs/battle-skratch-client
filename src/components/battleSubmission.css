@@ -91,11 +91,12 @@
   font-size: 2em;
 }
 .contest-entry-button-block button.vote span:nth-child(2) {
-  margin-left: 0.5em;
+  margin: 0 0.5em;
+  padding-top: 0.25rem;
 }
 @media screen and (min-width: 768px) {
   .contest-entry-button-block button.vote span:nth-child(2) {
-    margin-left: 1em;
+    margin: 0 0.75em;
   }
 }
 .cframe-cone-video-next-prev {
@@ -175,4 +176,8 @@
   border-bottom: 1px solid rgba(85, 85, 92, 0.4);
   outline: none;
   resize: vertical;
+}
+.submit-text {
+  font-size: 1rem !important;
+  color: #c96302 !important;
 }

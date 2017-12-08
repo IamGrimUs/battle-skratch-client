@@ -47,6 +47,10 @@
   box-shadow: 0;
 }
 .enter-battle-container .black {
-  color: #000000;
-  font-weight: 600;
+  color: #000000 !important;
+  font-size: 1.45rem !important;
+}
+.enter-battle-container .submit-text {
+  font-size: 1rem !important;
+  color: #c96302 !important;
 }

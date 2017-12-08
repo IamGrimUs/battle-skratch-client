@@ -29,6 +29,7 @@ export class CommentSection extends React.Component {
           />
         ))}
         <WrappedCommentForm onSubmit={this.props.onSubmit} />
+        <p className="submit-text">press enter to submit</p>
       </section>
     );
   }

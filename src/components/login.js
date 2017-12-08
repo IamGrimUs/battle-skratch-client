@@ -21,8 +21,8 @@ export class Login extends React.Component {
         <h2>login fella</h2>
         <section className="login-form-container">
           <p>
-            This site is currently in testing. Logins are invite only during the
-            duration. For demo viewing please sign in as
+            This site is currently in testing. Logins are invite only. For demo
+            viewing please sign in as.
           </p>
           <p className="black">
             user name: you<br />
@@ -34,6 +34,7 @@ export class Login extends React.Component {
             } Please check your entries and try again.`}</p>
           )}
           <WrappedLoginForm onSubmit={this.props.onSubmit} />
+          <p className="submit-text">press enter to submit</p>
         </section>
       </section>
     );

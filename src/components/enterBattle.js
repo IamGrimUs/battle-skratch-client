@@ -115,6 +115,7 @@ export class EnterBattle extends React.Component {
             </li>
           </ul>
           <WrappedCommentForm onSubmit={this.onSubmit} />
+          <p className="submit-text">press enter to submit</p>
         </section>
       </section>
     );
@@ -136,7 +137,7 @@ const VideoCreationForm = props => {
         name="videoTitle"
         type="text"
         component="input"
-        placeholder="go on give it a title"
+        placeholder="video title"
         required
       />
       <input type="submit" disabled={pristine || submitting} hidden />

@@ -20,8 +20,12 @@
   font-weight: 600;
 }
 .login-form-container .black {
-  color: #000000;
-  font-weight: 600;
+  color: #000000 !important;
+  font-size: 1.45rem !important;
+}
+.login-form-container .submit-text {
+  font-size: 1rem !important;
+  color: #c96302 !important;
 }
 .login-form-container .markerFont {
   font-family: 'Permanent Marker', 'Open Sans';
