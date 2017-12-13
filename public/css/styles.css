@@ -241,12 +241,14 @@ h1.page-title {
 }
 .contest-entry-button-block a {
   width: 100%;
-  color: #e7a120;
-  text-decoration: none;
-  font-size: 1.25rem;
+  text-align: center;
 }
 .contest-entry-button-block button {
   width: 93%;
+  color: #e7a120;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
   margin: 0 auto;
   margin-bottom: 0.5em;
   height: 60px;
@@ -277,14 +279,6 @@ h1.page-title {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
-}
-.contest-entry-button-block button a,
-.contest-entry-button-block button span {
-  font-family: 'Permanent Marker', 'Open Sans', sans-serif;
-  font-size: 1.25rem;
-}
-.contest-entry-button-block button > a {
-  color: #e7d697;
 }
 .text-right {
   text-align: right;
