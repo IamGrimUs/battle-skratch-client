@@ -88,7 +88,7 @@
 .contest-entry-button-block button.vote span {
   color: #ffffff;
   font-family: 'Permanent Marker', cursive;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 .contest-entry-button-block button.vote span:nth-child(2) {
   margin: 0 0.5em;
