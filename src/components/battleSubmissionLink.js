@@ -5,7 +5,7 @@ export default function BattleSubmissionLink(props) {
   return (
     <div className="contest-entry-button-block">
       <Link to={`/battleSubmission/${props.battleId}/${props.videoId}`}>
-        <button>watch the video</button>
+        <button className="watch-video">watch the video</button>
       </Link>
     </div>
   );

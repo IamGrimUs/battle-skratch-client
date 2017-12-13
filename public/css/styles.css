@@ -239,6 +239,20 @@ h1.page-title {
   display: inline-block;
   margin-left: 1em;
 }
+.watch-video {
+  width: 93%;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  height: 60px;
+  text-align: center;
+  background: #47444b;
+  border: 0;
+  border-bottom: 4px solid #3b393f;
+  border-top: 2px solid #47444b;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
 .contest-entry-button-block button {
   width: 93%;
   margin: 0 auto;
