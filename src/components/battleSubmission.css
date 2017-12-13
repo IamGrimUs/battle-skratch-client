@@ -88,11 +88,11 @@
 .contest-entry-button-block button.vote span {
   color: #ffffff;
   font-family: 'Permanent Marker', cursive;
-  font-size: 2em;
+  font-size: 2rem;
 }
 .contest-entry-button-block button.vote span:nth-child(2) {
   margin: 0 0.5em;
-  padding-top: 0.25rem;
+  padding-top: 0.25em;
 }
 @media screen and (min-width: 768px) {
   .contest-entry-button-block button.vote span:nth-child(2) {
