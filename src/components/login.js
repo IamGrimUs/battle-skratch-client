@@ -12,10 +12,38 @@ import { BASE_URL } from '../constant';
 import './login.css';
 
 export class Login extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadingContent: false
+    }
+  }
+
+  componentDidMount() {
+    Login.callback = (data) => {
+      this.setState({ loadingContent: data })
+    }
+  }
   render() {
     if (this.props.contender.userId) {
       return <Redirect to={{ pathname: '/howItWorks' }} />;
     }
+
+    if (this.state.loadingContent) {
+      return (
+        <section className="login-container">
+          <section className="login-form-container">
+            <div class="spinner">
+              <div class="double-bounce1"></div>
+              <div class="double-bounce2"></div>
+            </div>
+          </section>
+        </section>
+
+      );
+    }
+
     return (
       <section className="login-container">
         <h2>login fella</h2>
@@ -66,6 +94,7 @@ const LoginForm = props => {
 };
 
 const captureUserLogin = (userName, password) => {
+  Login.callback(true);
   const data = JSON.stringify({ userName, password });
   const headers = new Headers({ 'Content-Type': 'application/json' });
   const req = new Request(`${BASE_URL}auth/login/`, {
