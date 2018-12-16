@@ -34,7 +34,7 @@ export class Login extends React.Component {
               } Please check your entries and try again.`}</p>
           )}
           <WrappedLoginForm onSubmit={this.props.onSubmit} />
-          <p className="submit-text">press enter to submit. please note initial login may take longer than expected. while the server wakes up</p>
+          <p className="submit-text">press enter to submit. please note initial login may take longer than expected. while the server wakes up.</p>
         </section>
       </section>
     );
