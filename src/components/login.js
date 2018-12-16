@@ -18,7 +18,7 @@ export class Login extends React.Component {
     }
     return (
       <section className="login-container">
-        <h2>login tabilist</h2>
+        <h2>login fella</h2>
         <section className="login-form-container">
           <p>
             This site is currently in testing. Logins are invite only. For demo
@@ -34,7 +34,8 @@ export class Login extends React.Component {
               } Please check your entries and try again.`}</p>
           )}
           <WrappedLoginForm onSubmit={this.props.onSubmit} />
-          <p className="submit-text">press enter to submit. please note initial login may take longer than expected while the server wakes up.</p>
+          <p className="submit-text">press enter to submit</p>
+          <p className="submit-text">initial login may take longer than expected while the server wakes up.</p>
         </section>
       </section>
     );
@@ -54,7 +55,7 @@ const LoginForm = props => {
       />
       <Field
         name="password"
-        type="password"
+        type="text"
         component="input"
         placeholder="password"
         required

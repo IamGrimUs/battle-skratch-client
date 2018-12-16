@@ -12,12 +12,10 @@ export class BattleOrders extends React.Component {
       return;
     }
     this.props.fetchCurrentBattle(this.props.contender);
-    console.log(this.props);
   }
 
   render() {
     const currentBattle = this.props.currentBattle;
-    // console.log('this is currentBattle: ', currentBattle);
     const description = this.props.currentBattle.battleTypeId.description;
     return (
       <section className="battle-orders">
