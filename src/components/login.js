@@ -34,9 +34,9 @@ export class Login extends React.Component {
       return (
         <section className="login-container">
           <section className="login-form-container">
-            <div class="spinner">
-              <div class="double-bounce1"></div>
-              <div class="double-bounce2"></div>
+            <div className="spinner">
+              <div className="double-bounce1"></div>
+              <div className="double-bounce2"></div>
             </div>
           </section>
         </section>

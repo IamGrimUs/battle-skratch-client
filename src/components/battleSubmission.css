@@ -173,6 +173,7 @@
   font-size: 1.3rem;
   background-color: #fafafa;
   padding: 1em 0em;
+  padding-left: .4em;
   border-bottom: 1px solid rgba(85, 85, 92, 0.4);
   outline: none;
   resize: vertical;

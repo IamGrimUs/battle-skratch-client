@@ -4,7 +4,7 @@ import moment from 'moment';
 import './battleListingHeadline.css';
 
 export default function BattleListingHeadline(props) {
-  const today = moment().format('MM-DD-YYYY');
+  const today = moment().format();
   const startDate = props.startDate.slice(0, 10);
   const endDate = props.endDate.slice(0, 10);
   return (
