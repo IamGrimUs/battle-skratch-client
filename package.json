@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "js-cookie": "^2.2.0",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.4",
     "moment": "^2.19.3",
     "passport-http": "^0.3.0",
